@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="userInfoCell" id="3PI-fl-Vrn" customClass="UserInfoCell" customModule="HPOrderList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3PI-fl-Vrn" id="HxN-CT-f9Z">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avt-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tWm-nt-xGZ">
+                        <rect key="frame" x="15" y="19" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tWm-nt-xGZ" secondAttribute="height" multiplier="1:1" id="nrU-xx-ZEO"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên K/H nèee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jZ-6i-YZn">
+                        <rect key="frame" x="75" y="12" width="91.5" height="17"/>
+                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="14"/>
+                        <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SĐT: 012345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1b-8Z-END">
+                        <rect key="frame" x="75" y="37" width="95.5" height="14"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
+                        <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa Chỉ: Hong pít :|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXq-f1-Ji2">
+                        <rect key="frame" x="75" y="59" width="107" height="14"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
+                        <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tWm-nt-xGZ" firstAttribute="leading" secondItem="HxN-CT-f9Z" secondAttribute="leading" constant="15" id="1uI-6g-Eds">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="tWm-nt-xGZ" firstAttribute="width" secondItem="HxN-CT-f9Z" secondAttribute="width" multiplier="0.133333" id="BuT-sc-b5P"/>
+                    <constraint firstItem="AXq-f1-Ji2" firstAttribute="top" secondItem="n1b-8Z-END" secondAttribute="bottom" constant="8" id="G7H-nx-PWT">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="tWm-nt-xGZ" firstAttribute="centerY" secondItem="n1b-8Z-END" secondAttribute="centerY" id="Wy6-HU-JFi"/>
+                    <constraint firstItem="AXq-f1-Ji2" firstAttribute="leading" secondItem="n1b-8Z-END" secondAttribute="leading" id="fHX-Yt-cPu"/>
+                    <constraint firstItem="n1b-8Z-END" firstAttribute="top" secondItem="2jZ-6i-YZn" secondAttribute="bottom" constant="8" id="mH4-F4-bH3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="n1b-8Z-END" firstAttribute="leading" secondItem="tWm-nt-xGZ" secondAttribute="trailing" constant="10" id="uRG-Gk-oAA">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstAttribute="bottom" secondItem="AXq-f1-Ji2" secondAttribute="bottom" constant="12" id="wR5-V8-QLR"/>
+                    <constraint firstItem="2jZ-6i-YZn" firstAttribute="leading" secondItem="n1b-8Z-END" secondAttribute="leading" id="xZl-9J-J43"/>
+                    <constraint firstItem="2jZ-6i-YZn" firstAttribute="top" secondItem="HxN-CT-f9Z" secondAttribute="top" constant="12" id="yHP-3q-hi3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="tcr-eP-qWy"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+            <connections>
+                <outlet property="lbAddress" destination="AXq-f1-Ji2" id="wvo-07-pRJ"/>
+                <outlet property="lbPhoneNumber" destination="n1b-8Z-END" id="Xju-0b-z6U"/>
+                <outlet property="lbUsername" destination="2jZ-6i-YZn" id="Aww-Kx-vde"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="104.46428571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avt-placeholder" width="24" height="24"/>
+    </resources>
+</document>

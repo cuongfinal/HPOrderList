@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="noF-Qx-bWg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -7,70 +7,138 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Cài Đặt-->
+        <scene sceneID="2MM-3B-FnU">
+            <objects>
+                <navigationController id="MkR-sk-Mkx" customClass="BaseNavigationVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cài Đặt" image="setting-icon-deselect" selectedImage="setting-icon" id="YwB-VE-YOH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YPq-Oi-iQq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6rc-Hh-GxU" kind="relationship" relationship="rootViewController" id="Cjf-uZ-iHc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J71-qo-B92" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3365" y="1487"/>
+        </scene>
+        <!--Cài Đặt-->
         <scene sceneID="XAp-SX-54r">
             <objects>
-                <viewController id="6rc-Hh-GxU" sceneMemberID="viewController">
+                <viewController id="6rc-Hh-GxU" customClass="SettingVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KcK-EM-RT1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IXQ-ff-7zU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6rc-Hh-GxU" id="yrt-YP-YNT"/>
+                                    <outlet property="delegate" destination="6rc-Hh-GxU" id="cnt-rI-yMa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IXQ-ff-7zU" firstAttribute="top" secondItem="ZbO-nW-356" secondAttribute="top" id="HpI-7X-emJ"/>
+                            <constraint firstItem="ZbO-nW-356" firstAttribute="bottom" secondItem="IXQ-ff-7zU" secondAttribute="bottom" id="Onl-LG-gQf"/>
+                            <constraint firstItem="IXQ-ff-7zU" firstAttribute="leading" secondItem="ZbO-nW-356" secondAttribute="leading" id="RKV-DM-HhI"/>
+                            <constraint firstItem="ZbO-nW-356" firstAttribute="trailing" secondItem="IXQ-ff-7zU" secondAttribute="trailing" id="Wob-Ni-D7X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZbO-nW-356"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="FjJ-r2-Tjn"/>
+                    <tabBarItem key="tabBarItem" title="Cài Đặt" image="setting-icon-deselect" selectedImage="setting-icon" id="FjJ-r2-Tjn"/>
+                    <navigationItem key="navigationItem" id="xPW-TH-n3f"/>
+                    <connections>
+                        <outlet property="tbSettings" destination="IXQ-ff-7zU" id="VPf-Bb-r5T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMU-tr-VDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1530" y="661"/>
+            <point key="canvasLocation" x="-1993" y="1487"/>
         </scene>
-        <!--Item 1-->
+        <!--Quản Lý Khách Hàng-->
+        <scene sceneID="uAk-xe-3ld">
+            <objects>
+                <navigationController id="8GS-19-Gyq" customClass="BaseNavigationVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Quản Lý Khách Hàng" image="home-icon-deselect" selectedImage="home-icon" id="sNi-e1-QOZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7CO-QG-Xn1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Jkj-Kp-hdq" kind="relationship" relationship="rootViewController" id="6Ef-pH-scq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xfm-vm-BEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3365" y="-435"/>
+        </scene>
+        <!--Quản Lý Khách Hàng-->
         <scene sceneID="Fnx-8K-esj">
             <objects>
-                <viewController id="Jkj-Kp-hdq" sceneMemberID="viewController">
+                <viewController id="Jkj-Kp-hdq" customClass="HomeVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ip-QT-2iQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Lx-4C-8m9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jkj-Kp-hdq" id="kQy-FM-JnO"/>
+                                    <outlet property="delegate" destination="Jkj-Kp-hdq" id="vfO-BP-Us0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yIO-cj-OBg" firstAttribute="trailing" secondItem="5Lx-4C-8m9" secondAttribute="trailing" id="Tbv-Sn-c4b"/>
+                            <constraint firstItem="yIO-cj-OBg" firstAttribute="bottom" secondItem="5Lx-4C-8m9" secondAttribute="bottom" id="czc-Hp-Dig"/>
+                            <constraint firstItem="5Lx-4C-8m9" firstAttribute="top" secondItem="yIO-cj-OBg" secondAttribute="top" id="hqJ-8o-0VX"/>
+                            <constraint firstItem="5Lx-4C-8m9" firstAttribute="leading" secondItem="yIO-cj-OBg" secondAttribute="leading" id="oZt-Ax-pXW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yIO-cj-OBg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="dd0-bd-bA1"/>
+                    <tabBarItem key="tabBarItem" title="Quản Lý Khách Hàng" image="home-icon-deselect" selectedImage="home-icon" id="dd0-bd-bA1"/>
+                    <navigationItem key="navigationItem" id="3pn-b2-PZS"/>
+                    <connections>
+                        <outlet property="tbUserlist" destination="5Lx-4C-8m9" id="XVK-Ge-XXK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXw-lc-470" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1530" y="13"/>
+            <point key="canvasLocation" x="-2161" y="-435"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tabbar Controller-->
         <scene sceneID="GTe-8o-3Ni">
             <objects>
-                <tabBarController id="noF-Qx-bWg" sceneMemberID="viewController">
+                <tabBarController id="noF-Qx-bWg" customClass="MainTabbarController" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3yU-Wc-Ngc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Jkj-Kp-hdq" kind="relationship" relationship="viewControllers" id="oq5-c1-5e5"/>
-                        <segue destination="6rc-Hh-GxU" kind="relationship" relationship="viewControllers" id="uUM-wq-dfc"/>
+                        <segue destination="8GS-19-Gyq" kind="relationship" relationship="viewControllers" id="xs8-o3-r3G"/>
+                        <segue destination="MkR-sk-Mkx" kind="relationship" relationship="viewControllers" id="uQH-iz-ylZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwa-qc-6xW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2452" y="337"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="-4352" y="445"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home-icon" width="25" height="25"/>
+        <image name="home-icon-deselect" width="25" height="25"/>
+        <image name="setting-icon" width="25" height="25"/>
+        <image name="setting-icon-deselect" width="25" height="25"/>
+    </resources>
 </document>

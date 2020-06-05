@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  HPOrderList
+
+  Created by Le Quang Tuan Cuong(CuongLQT) on 6/5/20.
+  Copyright © 2020 Cuong Le. All rights reserved.
+*/
+
+"home_title" = "Quản Lý Khách hàng";
+"setting_title" = "Cài Đặt";
+
+"support_function" = "Tính năng bổ trợ";
+"backup_title" = "Sao lưu dữ liệu khách hàng";
+"restore_title" = "Khôi phục dữ liệu khách hàng";
+"auto_backup_title" = "Tự động sao lưu";
+
+"support_title" = "Hỗ trợ";
+"contact_title" = "Liên hệ";
+"guideline_title" = "Hướng dẫn sử dụng";
+"app_version_title" = "Phiên bản hiện tại: %@";
