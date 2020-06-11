@@ -32,8 +32,6 @@ class HomeVC: BaseVC {
         super.viewDidLoad()
         CommonUtil.addRightBtn(to: self, imageNamed: "plus-icon", with: #selector(self.rightBtnAction))
         tbUserlist.separatorColor = UIColor.borderColor
-        
-        
     }
     
     func setupSearchBar(){
@@ -61,7 +59,8 @@ class HomeVC: BaseVC {
     }
     
     @objc func rightBtnAction() {
-       //
+        let createUserVC = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "createUserVC") as! CreateUserVC
+        CommonUtil.push(createUserVC, from: self, andCanBack: true, hideBottom: true)
     }
 }
 

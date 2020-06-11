@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Create UserVC-->
+        <scene sceneID="5sC-Uv-18c">
+            <objects>
+                <viewController storyboardIdentifier="createUserVC" id="4jR-cI-vvJ" customClass="CreateUserVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MSv-zk-zcD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-m7-fWi" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="74" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2Fd-m7-fWi" secondAttribute="height" multiplier="69:11" id="jY4-dK-ysZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Tên khách hàng"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-fK-jSs" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="149" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Số điện thoại"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNK-wd-B6x" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="224" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Địa chỉ"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZY-5f-sUG" customClass="FConfirmButton" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="16.5" y="784" width="381" height="53"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SZY-5f-sUG" secondAttribute="height" multiplier="115:16" id="QJ9-Mr-JgB"/>
+                                    <constraint firstAttribute="width" secondItem="SZY-5f-sUG" secondAttribute="height" multiplier="345:48" id="aCm-Te-hqz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="14"/>
+                                <state key="normal" title="Tạo khách hàng">
+                                    <color key="titleColor" red="0.96068006750000001" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createBtnTapped:" destination="4jR-cI-vvJ" eventType="touchUpInside" id="bSZ-uo-4y1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yIb-fK-jSs" firstAttribute="height" secondItem="2Fd-m7-fWi" secondAttribute="height" id="16q-oX-RJm"/>
+                            <constraint firstItem="TNK-wd-B6x" firstAttribute="height" secondItem="yIb-fK-jSs" secondAttribute="height" id="1aU-ic-zaK"/>
+                            <constraint firstItem="2Fd-m7-fWi" firstAttribute="width" secondItem="MSv-zk-zcD" secondAttribute="width" multiplier="0.833333" id="5df-Q2-1hN"/>
+                            <constraint firstItem="Fbu-Y4-CwH" firstAttribute="bottom" secondItem="SZY-5f-sUG" secondAttribute="bottom" constant="25" id="7xB-2T-VTp">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="TNK-wd-B6x" firstAttribute="width" secondItem="yIb-fK-jSs" secondAttribute="width" id="BqU-Zd-DAb"/>
+                            <constraint firstItem="2Fd-m7-fWi" firstAttribute="top" secondItem="Fbu-Y4-CwH" secondAttribute="top" constant="30" id="DtW-f6-isb">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="TNK-wd-B6x" firstAttribute="centerX" secondItem="yIb-fK-jSs" secondAttribute="centerX" id="ORA-RG-PQI"/>
+                            <constraint firstItem="yIb-fK-jSs" firstAttribute="top" secondItem="2Fd-m7-fWi" secondAttribute="bottom" constant="20" id="RHV-LB-Wlc">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="SZY-5f-sUG" firstAttribute="width" secondItem="SZY-5f-sUG" secondAttribute="height" multiplier="345:48" id="UOO-sN-EOz"/>
+                            <constraint firstItem="SZY-5f-sUG" firstAttribute="centerX" secondItem="Fbu-Y4-CwH" secondAttribute="centerX" id="hhd-Sy-ys6"/>
+                            <constraint firstItem="yIb-fK-jSs" firstAttribute="width" secondItem="2Fd-m7-fWi" secondAttribute="width" id="s6g-xL-gcu"/>
+                            <constraint firstItem="TNK-wd-B6x" firstAttribute="top" secondItem="yIb-fK-jSs" secondAttribute="bottom" constant="20" id="ufC-nf-uLT">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="SZY-5f-sUG" firstAttribute="width" secondItem="MSv-zk-zcD" secondAttribute="width" multiplier="345:375" id="v5j-VM-kpT"/>
+                            <constraint firstItem="2Fd-m7-fWi" firstAttribute="centerX" secondItem="Fbu-Y4-CwH" secondAttribute="centerX" id="wlf-0x-6gU"/>
+                            <constraint firstItem="yIb-fK-jSs" firstAttribute="centerX" secondItem="2Fd-m7-fWi" secondAttribute="centerX" id="z9l-Wy-eO3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fbu-Y4-CwH"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnCreate" destination="SZY-5f-sUG" id="VC6-DV-xQP"/>
+                        <outlet property="ivAddress" destination="TNK-wd-B6x" id="Tkw-9s-YnR"/>
+                        <outlet property="ivName" destination="2Fd-m7-fWi" id="nnS-sN-4Jx"/>
+                        <outlet property="ivPhone" destination="yIb-fK-jSs" id="Iut-BY-eAk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGL-7k-A0Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-817" y="33"/>
+        </scene>
+        <!--Create ProductVC-->
+        <scene sceneID="LHZ-T4-bC1">
+            <objects>
+                <viewController storyboardIdentifier="createProductVC" id="YFH-BO-c2G" customClass="CreateProductVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LvF-NM-twJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-7q-M21" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="74" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bYP-7q-M21" secondAttribute="height" multiplier="69:11" id="mjx-3F-SyP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Tên sản phẩm"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-B8-jyj" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="149" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Số lượng"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCa-lM-ZrB" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="224" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Giá tiền"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCurrencyValue" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84g-tA-uc1" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="34.5" y="299" width="345" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Tiền cọc"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCurrencyValue" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exe-ng-QIT" customClass="FConfirmButton" customModule="HPOrderList" customModuleProvider="target">
+                                <rect key="frame" x="16.5" y="784" width="381" height="53"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="exe-ng-QIT" secondAttribute="height" multiplier="345:48" id="X4T-gm-ov9"/>
+                                    <constraint firstAttribute="width" secondItem="exe-ng-QIT" secondAttribute="height" multiplier="115:16" id="gaD-1G-bpN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="14"/>
+                                <state key="normal" title="Tạo sản phẩm">
+                                    <color key="titleColor" red="0.96068006750000001" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createProductTapped:" destination="YFH-BO-c2G" eventType="touchUpInside" id="qMb-TJ-f2z"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số tiền còn lại: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGq-hU-iyg">
+                                <rect key="frame" x="34.5" y="384" width="166" height="21"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0 VND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mc-n8-cxl">
+                                <rect key="frame" x="205.5" y="384" width="193.5" height="21"/>
+                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="e4s-B8-jyj" firstAttribute="centerX" secondItem="bYP-7q-M21" secondAttribute="centerX" id="1bS-SL-tne"/>
+                            <constraint firstItem="bYP-7q-M21" firstAttribute="width" secondItem="LvF-NM-twJ" secondAttribute="width" multiplier="0.833333" id="33x-hx-zAe"/>
+                            <constraint firstItem="84g-tA-uc1" firstAttribute="centerX" secondItem="wCa-lM-ZrB" secondAttribute="centerX" id="4XG-LE-drR"/>
+                            <constraint firstItem="bYP-7q-M21" firstAttribute="centerX" secondItem="B0m-om-xXt" secondAttribute="centerX" id="ClE-J7-oGs"/>
+                            <constraint firstItem="84g-tA-uc1" firstAttribute="width" secondItem="wCa-lM-ZrB" secondAttribute="width" id="IyH-ob-D4a"/>
+                            <constraint firstItem="84g-tA-uc1" firstAttribute="top" secondItem="wCa-lM-ZrB" secondAttribute="bottom" constant="20" id="JGM-Py-I07"/>
+                            <constraint firstItem="9Mc-n8-cxl" firstAttribute="leading" secondItem="OGq-hU-iyg" secondAttribute="trailing" constant="5" id="KKa-P1-VmB"/>
+                            <constraint firstItem="e4s-B8-jyj" firstAttribute="height" secondItem="bYP-7q-M21" secondAttribute="height" id="Rej-vT-LmV"/>
+                            <constraint firstItem="OGq-hU-iyg" firstAttribute="leading" secondItem="84g-tA-uc1" secondAttribute="leading" id="TFh-CY-XcY"/>
+                            <constraint firstItem="B0m-om-xXt" firstAttribute="bottom" secondItem="exe-ng-QIT" secondAttribute="bottom" constant="25" id="WAz-OT-Q7l">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="e4s-B8-jyj" firstAttribute="width" secondItem="bYP-7q-M21" secondAttribute="width" id="Y0N-mI-bLg"/>
+                            <constraint firstItem="wCa-lM-ZrB" firstAttribute="height" secondItem="e4s-B8-jyj" secondAttribute="height" id="ZDq-GQ-PGf"/>
+                            <constraint firstItem="exe-ng-QIT" firstAttribute="width" secondItem="LvF-NM-twJ" secondAttribute="width" multiplier="345:375" id="aQb-0f-YwL"/>
+                            <constraint firstItem="e4s-B8-jyj" firstAttribute="top" secondItem="bYP-7q-M21" secondAttribute="bottom" constant="20" id="d87-bv-cx7">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="OGq-hU-iyg" firstAttribute="top" secondItem="84g-tA-uc1" secondAttribute="bottom" constant="30" id="dBe-tF-6cS"/>
+                            <constraint firstItem="wCa-lM-ZrB" firstAttribute="width" secondItem="e4s-B8-jyj" secondAttribute="width" id="g4h-n5-Hhf"/>
+                            <constraint firstItem="wCa-lM-ZrB" firstAttribute="top" secondItem="e4s-B8-jyj" secondAttribute="bottom" constant="20" id="gKe-3I-PDo">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="9Mc-n8-cxl" firstAttribute="centerY" secondItem="OGq-hU-iyg" secondAttribute="centerY" id="gg4-at-PTR"/>
+                            <constraint firstItem="B0m-om-xXt" firstAttribute="trailing" secondItem="9Mc-n8-cxl" secondAttribute="trailing" constant="15" id="lSv-mP-ki6"/>
+                            <constraint firstItem="exe-ng-QIT" firstAttribute="centerX" secondItem="B0m-om-xXt" secondAttribute="centerX" id="ocW-ia-Iuh"/>
+                            <constraint firstItem="wCa-lM-ZrB" firstAttribute="centerX" secondItem="e4s-B8-jyj" secondAttribute="centerX" id="uCG-84-pQB"/>
+                            <constraint firstItem="exe-ng-QIT" firstAttribute="width" secondItem="exe-ng-QIT" secondAttribute="height" multiplier="345:48" id="vek-s3-oG1"/>
+                            <constraint firstItem="84g-tA-uc1" firstAttribute="height" secondItem="wCa-lM-ZrB" secondAttribute="height" id="wJc-7A-tvF"/>
+                            <constraint firstItem="bYP-7q-M21" firstAttribute="top" secondItem="B0m-om-xXt" secondAttribute="top" constant="30" id="ypV-fj-byw">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B0m-om-xXt"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnCreateProduct" destination="exe-ng-QIT" id="qlz-gV-SYH"/>
+                        <outlet property="ivName" destination="bYP-7q-M21" id="QhV-La-6MM"/>
+                        <outlet property="ivPaid" destination="84g-tA-uc1" id="huD-VM-9az"/>
+                        <outlet property="ivPrice" destination="wCa-lM-ZrB" id="E7j-BE-1Vr"/>
+                        <outlet property="ivQuality" destination="e4s-B8-jyj" id="Nn1-oY-1jV"/>
+                        <outlet property="lbTotalMoney" destination="9Mc-n8-cxl" id="FSi-W4-xoz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIP-zS-TBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="33"/>
+        </scene>
+    </scenes>
+</document>

@@ -36,13 +36,13 @@ enum CornerType: Int {
         }
     }
     
-    @IBInspectable var bgColorNormal: UIColor = UIColor.white {
+    @IBInspectable var bgColorNormal: UIColor = UIColor.mainColor {
         didSet {
             backgroundColor = bgColorNormal
         }
     }
     
-    @IBInspectable var bgColorDisable: UIColor = UIColor.mainColor {
+    @IBInspectable var bgColorDisable: UIColor = UIColor.veryLightBlue {
         didSet {
             backgroundColor = bgColorDisable
         }

@@ -34,4 +34,15 @@ extension UIColor {
     static var editBGColor: UIColor {
            return UIColor.init(r: 237, g: 238, b: 241, a: 1)
     }
+    
+    static var inputBorderColor = UIColor.init(r: 229, g: 233, b: 238, a: 1)
+    
+    static var whiteThree: UIColor {
+        return UIColor.init(r: 252, g: 252, b: 252, a: 1)
+    }
+    
+    //#E6E9EE
+     static var veryLightBlue: UIColor {
+         return UIColor.init(r: 230, g: 233, b: 238, a: 1)
+     }
 }

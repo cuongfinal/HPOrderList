@@ -47,6 +47,13 @@
 		D4DFF31F248A416E009CA13E /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DFF31D248A416E009CA13E /* UserInfoCell.xib */; };
 		D4DFF323248A4DC6009CA13E /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF321248A4DC6009CA13E /* SettingCell.swift */; };
 		D4DFF324248A4DC6009CA13E /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DFF322248A4DC6009CA13E /* SettingCell.xib */; };
+		D4E92E1D2492244A00A1F429 /* UserManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E92E1C2492244A00A1F429 /* UserManage.storyboard */; };
+		D4E92E212492267700A1F429 /* FInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E92E1F2492267700A1F429 /* FInputView.swift */; };
+		D4E92E222492267700A1F429 /* FInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E92E202492267700A1F429 /* FInputView.xib */; };
+		D4E92E242492279500A1F429 /* FConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E92E232492279400A1F429 /* FConfirmButton.swift */; };
+		D4E92E262492281D00A1F429 /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E92E252492281D00A1F429 /* CreateUserVC.swift */; };
+		D4E92E282492290100A1F429 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E92E272492290100A1F429 /* BaseTextField.swift */; };
+		D4E92E2A24922E1F00A1F429 /* CreateProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E92E2924922E1F00A1F429 /* CreateProductVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +99,13 @@
 		D4DFF31D248A416E009CA13E /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
 		D4DFF321248A4DC6009CA13E /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		D4DFF322248A4DC6009CA13E /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		D4E92E1C2492244A00A1F429 /* UserManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserManage.storyboard; sourceTree = "<group>"; };
+		D4E92E1F2492267700A1F429 /* FInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FInputView.swift; sourceTree = "<group>"; };
+		D4E92E202492267700A1F429 /* FInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FInputView.xib; sourceTree = "<group>"; };
+		D4E92E232492279400A1F429 /* FConfirmButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FConfirmButton.swift; sourceTree = "<group>"; };
+		D4E92E252492281D00A1F429 /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
+		D4E92E272492290100A1F429 /* BaseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		D4E92E2924922E1F00A1F429 /* CreateProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductVC.swift; sourceTree = "<group>"; };
 		DD00F23183E1A8FFE55026EE /* Pods_HPOrderList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HPOrderList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D78EA2BE475B6536B0AF8B /* Pods-HPOrderList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPOrderList.release.xcconfig"; path = "Target Support Files/Pods-HPOrderList/Pods-HPOrderList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +206,9 @@
 		D4DFF2D9248A3734009CA13E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D4E92E272492290100A1F429 /* BaseTextField.swift */,
+				D4E92E232492279400A1F429 /* FConfirmButton.swift */,
+				D4E92E1E2492267700A1F429 /* FInputView */,
 				D4DFF2F1248A3A2E009CA13E /* AutoResizeFontSize.swift */,
 				D4DFF2F3248A3A2E009CA13E /* BaseNavigationVC.swift */,
 				D4DFF2F4248A3A2E009CA13E /* BaseVC.swift */,
@@ -248,6 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				D4DFF31B248A4134009CA13E /* View */,
+				D4E92E1C2492244A00A1F429 /* UserManage.storyboard */,
+				D4E92E252492281D00A1F429 /* CreateUserVC.swift */,
+				D4E92E2924922E1F00A1F429 /* CreateProductVC.swift */,
 			);
 			path = UserManagement;
 			sourceTree = "<group>";
@@ -278,6 +298,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D4E92E1E2492267700A1F429 /* FInputView */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E1F2492267700A1F429 /* FInputView.swift */,
+				D4E92E202492267700A1F429 /* FInputView.xib */,
+			);
+			path = FInputView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -289,6 +318,7 @@
 				D4A34916248629D4004330E3 /* Sources */,
 				D4A34917248629D4004330E3 /* Frameworks */,
 				D4A34918248629D4004330E3 /* Resources */,
+				523C3FFE93B9430B69757401 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,6 +367,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E92E222492267700A1F429 /* FInputView.xib in Resources */,
+				D4E92E1D2492244A00A1F429 /* UserManage.storyboard in Resources */,
 				D4DFF30B248A3AB2009CA13E /* SF-Pro-Display-Semibold.otf in Resources */,
 				D4DFF316248A3F45009CA13E /* Localizable.strings in Resources */,
 				D4DFF324248A4DC6009CA13E /* SettingCell.xib in Resources */,
@@ -357,6 +389,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		523C3FFE93B9430B69757401 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HPOrderList/Pods-HPOrderList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HPOrderList/Pods-HPOrderList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HPOrderList/Pods-HPOrderList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F9277420B653E22B8E8E649C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +439,8 @@
 				D4DFF2FC248A3A71009CA13E /* SettingVC.swift in Sources */,
 				D4DFF2EE248A39F0009CA13E /* UIView.swift in Sources */,
 				D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */,
+				D4E92E2A24922E1F00A1F429 /* CreateProductVC.swift in Sources */,
+				D4E92E212492267700A1F429 /* FInputView.swift in Sources */,
 				D4DFF2EB248A39F0009CA13E /* UITextField.swift in Sources */,
 				D4DFF2F9248A3A2E009CA13E /* BaseVC.swift in Sources */,
 				D4DFF313248A3B44009CA13E /* Constants.swift in Sources */,
@@ -398,9 +449,11 @@
 				D4DFF2DB248A377A009CA13E /* UIImage.swift in Sources */,
 				D4DFF2D8248A36DD009CA13E /* UIColor.swift in Sources */,
 				D4DFF2DD248A3953009CA13E /* HomeVC.swift in Sources */,
+				D4E92E262492281D00A1F429 /* CreateUserVC.swift in Sources */,
 				D4DFF2F8248A3A2E009CA13E /* BaseNavigationVC.swift in Sources */,
 				D4DFF2EA248A39F0009CA13E /* NSLayoutConstraint.swift in Sources */,
 				D4DFF2EC248A39F0009CA13E /* UIFont.swift in Sources */,
+				D4E92E282492290100A1F429 /* BaseTextField.swift in Sources */,
 				D4DFF2E9248A39F0009CA13E /* NSMutableAttributedString.swift in Sources */,
 				D4DFF311248A3B1B009CA13E /* CommonUtil.swift in Sources */,
 				D4DFF2EF248A39F0009CA13E /* Array.swift in Sources */,
@@ -411,6 +464,7 @@
 				D4A3491E248629D4004330E3 /* AppDelegate.swift in Sources */,
 				D4DFF2F7248A3A2E009CA13E /* RoundedComponent.swift in Sources */,
 				D4DFF2F0248A39F0009CA13E /* UIViewController.swift in Sources */,
+				D4E92E242492279500A1F429 /* FConfirmButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
