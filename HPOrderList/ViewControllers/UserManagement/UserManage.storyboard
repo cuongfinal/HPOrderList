@@ -249,7 +249,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gn-qm-C8t" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
-                                <rect key="frame" x="25" y="381.5" width="364" height="58"/>
+                                <rect key="frame" x="25" y="386.5" width="364" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -287,19 +287,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số tiền còn lại: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGq-hU-iyg">
-                                <rect key="frame" x="25" y="527.5" width="166" height="21"/>
+                                <rect key="frame" x="25" y="542.5" width="166" height="21"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0 VND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mc-n8-cxl">
-                                <rect key="frame" x="196" y="527.5" width="203" height="21"/>
+                                <rect key="frame" x="196" y="542.5" width="203" height="21"/>
                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfK-WX-23q" customClass="SSwitchView" customModule="HPOrderList" customModuleProvider="target">
-                                <rect key="frame" x="25" y="454.5" width="364" height="58"/>
+                                <rect key="frame" x="25" y="464.5" width="364" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -345,7 +345,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="OGq-hU-iyg" firstAttribute="top" secondItem="cfK-WX-23q" secondAttribute="bottom" constant="15" id="eBz-gk-l7z"/>
+                            <constraint firstItem="OGq-hU-iyg" firstAttribute="top" secondItem="cfK-WX-23q" secondAttribute="bottom" constant="20" id="eBz-gk-l7z"/>
                             <constraint firstItem="wCa-lM-ZrB" firstAttribute="width" secondItem="e4s-B8-jyj" secondAttribute="width" id="g4h-n5-Hhf"/>
                             <constraint firstItem="wCa-lM-ZrB" firstAttribute="top" secondItem="e4s-B8-jyj" secondAttribute="bottom" constant="20" id="gKe-3I-PDo">
                                 <userDefinedRuntimeAttributes>
@@ -353,10 +353,10 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="9Mc-n8-cxl" firstAttribute="centerY" secondItem="OGq-hU-iyg" secondAttribute="centerY" id="gg4-at-PTR"/>
-                            <constraint firstItem="cfK-WX-23q" firstAttribute="top" secondItem="2gn-qm-C8t" secondAttribute="bottom" constant="15" id="kXY-0P-Wve"/>
+                            <constraint firstItem="cfK-WX-23q" firstAttribute="top" secondItem="2gn-qm-C8t" secondAttribute="bottom" constant="20" id="kXY-0P-Wve"/>
                             <constraint firstItem="B0m-om-xXt" firstAttribute="trailing" secondItem="9Mc-n8-cxl" secondAttribute="trailing" constant="15" id="lSv-mP-ki6"/>
                             <constraint firstItem="exe-ng-QIT" firstAttribute="centerX" secondItem="B0m-om-xXt" secondAttribute="centerX" id="ocW-ia-Iuh"/>
-                            <constraint firstItem="2gn-qm-C8t" firstAttribute="top" secondItem="84g-tA-uc1" secondAttribute="bottom" constant="15" id="ptn-BS-bTa"/>
+                            <constraint firstItem="2gn-qm-C8t" firstAttribute="top" secondItem="84g-tA-uc1" secondAttribute="bottom" constant="20" id="ptn-BS-bTa"/>
                             <constraint firstItem="cfK-WX-23q" firstAttribute="height" secondItem="84g-tA-uc1" secondAttribute="height" id="s5K-v5-3oM"/>
                             <constraint firstItem="2gn-qm-C8t" firstAttribute="width" secondItem="84g-tA-uc1" secondAttribute="width" id="txc-wf-Wq3"/>
                             <constraint firstItem="wCa-lM-ZrB" firstAttribute="centerX" secondItem="e4s-B8-jyj" secondAttribute="centerX" id="uCG-84-pQB"/>
@@ -515,7 +515,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-fX-RI9" customClass="FConfirmButton" customModule="HPOrderList" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-fX-RI9" customClass="FConfirmButton" customModule="HPOrderList" customModuleProvider="target">
                                 <rect key="frame" x="16.5" y="784" width="381" height="53"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -665,7 +665,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-Pf-j5d" customClass="FInputView" customModule="HPOrderList" customModuleProvider="target">
-                                <rect key="frame" x="25" y="381.5" width="364" height="58"/>
+                                <rect key="frame" x="25" y="386.5" width="364" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -682,7 +682,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCurrencyValue" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="280-Jp-5CW" customClass="FConfirmButton" customModule="HPOrderList" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="280-Jp-5CW" customClass="FConfirmButton" customModule="HPOrderList" customModuleProvider="target">
                                 <rect key="frame" x="16.5" y="784" width="381" height="53"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -703,19 +703,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số tiền còn lại: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6c-L4-syb">
-                                <rect key="frame" x="25" y="527.5" width="166" height="21"/>
+                                <rect key="frame" x="25" y="542.5" width="166" height="21"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0 VND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MH-aG-lGQ">
-                                <rect key="frame" x="196" y="527.5" width="203" height="21"/>
+                                <rect key="frame" x="196" y="542.5" width="203" height="21"/>
                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il2-ZT-6Ze" customClass="SSwitchView" customModule="HPOrderList" customModuleProvider="target">
-                                <rect key="frame" x="25" y="454.5" width="364" height="58"/>
+                                <rect key="frame" x="25" y="464.5" width="364" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -753,7 +753,7 @@
                             <constraint firstItem="y6p-Pf-j5d" firstAttribute="centerX" secondItem="ADP-ui-tpz" secondAttribute="centerX" id="9GK-xs-T2k"/>
                             <constraint firstItem="znc-u9-cP4" firstAttribute="trailing" secondItem="3MH-aG-lGQ" secondAttribute="trailing" constant="15" id="9or-aY-eKX"/>
                             <constraint firstItem="3MH-aG-lGQ" firstAttribute="leading" secondItem="y6c-L4-syb" secondAttribute="trailing" constant="5" id="CKc-2l-Z3x"/>
-                            <constraint firstItem="y6p-Pf-j5d" firstAttribute="top" secondItem="ADP-ui-tpz" secondAttribute="bottom" constant="15" id="CVw-YA-OXt"/>
+                            <constraint firstItem="y6p-Pf-j5d" firstAttribute="top" secondItem="ADP-ui-tpz" secondAttribute="bottom" constant="20" id="CVw-YA-OXt"/>
                             <constraint firstItem="280-Jp-5CW" firstAttribute="centerX" secondItem="znc-u9-cP4" secondAttribute="centerX" id="Dcp-Jo-G1E"/>
                             <constraint firstItem="3MH-aG-lGQ" firstAttribute="centerY" secondItem="y6c-L4-syb" secondAttribute="centerY" id="JWw-xo-x6i"/>
                             <constraint firstItem="Mkw-R2-S69" firstAttribute="centerX" secondItem="GVI-UF-koQ" secondAttribute="centerX" id="KuD-M7-18L"/>
@@ -761,7 +761,7 @@
                             <constraint firstItem="ADP-ui-tpz" firstAttribute="width" secondItem="Mkw-R2-S69" secondAttribute="width" id="RFZ-wW-uCs"/>
                             <constraint firstItem="ADP-ui-tpz" firstAttribute="height" secondItem="Mkw-R2-S69" secondAttribute="height" id="Rh1-Fv-TvD"/>
                             <constraint firstItem="y6p-Pf-j5d" firstAttribute="height" secondItem="ADP-ui-tpz" secondAttribute="height" id="Rsq-hK-EWG"/>
-                            <constraint firstItem="Il2-ZT-6Ze" firstAttribute="top" secondItem="y6p-Pf-j5d" secondAttribute="bottom" constant="15" id="SVb-rT-zdi"/>
+                            <constraint firstItem="Il2-ZT-6Ze" firstAttribute="top" secondItem="y6p-Pf-j5d" secondAttribute="bottom" constant="20" id="SVb-rT-zdi"/>
                             <constraint firstItem="GVI-UF-koQ" firstAttribute="height" secondItem="J6w-5t-s4m" secondAttribute="height" id="TrK-Cm-BfD"/>
                             <constraint firstItem="y6p-Pf-j5d" firstAttribute="width" secondItem="ADP-ui-tpz" secondAttribute="width" id="V71-dV-qUP"/>
                             <constraint firstItem="280-Jp-5CW" firstAttribute="width" secondItem="280-Jp-5CW" secondAttribute="height" multiplier="345:48" id="aCy-29-qen"/>
@@ -778,7 +778,7 @@
                             <constraint firstItem="ADP-ui-tpz" firstAttribute="top" secondItem="Mkw-R2-S69" secondAttribute="bottom" constant="20" id="rKj-8H-Id6"/>
                             <constraint firstItem="Mkw-R2-S69" firstAttribute="height" secondItem="GVI-UF-koQ" secondAttribute="height" id="uI7-o6-ysr"/>
                             <constraint firstItem="J6w-5t-s4m" firstAttribute="centerX" secondItem="znc-u9-cP4" secondAttribute="centerX" id="vE0-fS-BwZ"/>
-                            <constraint firstItem="y6c-L4-syb" firstAttribute="top" secondItem="Il2-ZT-6Ze" secondAttribute="bottom" constant="15" id="wEb-If-c4g"/>
+                            <constraint firstItem="y6c-L4-syb" firstAttribute="top" secondItem="Il2-ZT-6Ze" secondAttribute="bottom" constant="20" id="wEb-If-c4g"/>
                             <constraint firstItem="J6w-5t-s4m" firstAttribute="top" secondItem="znc-u9-cP4" secondAttribute="top" constant="30" id="zSv-8B-Ri7">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>

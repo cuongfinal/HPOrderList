@@ -34,7 +34,7 @@ class UserInfoCell: UITableViewCell {
         lbAddress.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Địa chỉ: %@", userInfo.address ?? ""), stringSemiBold: userInfo.address ?? "")
         
         //
-        let otherStr = userInfo.others!.count > 0 ? userInfo.others : "Không có"
+        let otherStr = (userInfo.others ?? "").count > 0 ? userInfo.others : "Không có"
         lbOthers.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Thông tin khác: %@", otherStr ?? ""), stringSemiBold: otherStr ?? "")
     }
 }

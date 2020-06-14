@@ -32,14 +32,35 @@ class UserDetailVC: BaseVC {
         reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //TODO: handle hide when searchBar is active?
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    func calculateMomey(){
+        var total: Int64 = 0
+        var paid: Int64 = 0
+        var remaining: Int64 = 0
+        for product in dataSource {
+            total += (product.price * Int64(product.quantity))
+            paid +=  product.paid
+            remaining += (product.price * Int64(product.quantity)) - product.paid
+        }
+        headerView.lbTotalMoney.text = String(format: "Tổng số tiền: %@", CommonUtil.convertCurrency(total))
+        headerView.lbTotalRemain.text = String(format: "Tổng số tiền còn lại: %@", CommonUtil.convertCurrency(remaining))
+        headerView.lbTotalPaid.text = String(format: "Tổng số tiền cọc: %@", CommonUtil.convertCurrency(paid)) 
     }
     
     func reloadData(){
         dataSource = DataHandling().fetchAllProduct(userInfo: userInfo ?? UserInfo())
         listTable.dataSource = dataSource
         listTable.tableView.reloadData()
+        calculateMomey()
     }
     
     func setupTableView(){

@@ -13,9 +13,12 @@ var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 170)
 
 @IBDesignable class UserDetailHeaderView: UIView {
     
+    @IBOutlet weak var lbTotalMoney: UILabel!
+    @IBOutlet weak var lbTotalRemain: UILabel!
+    @IBOutlet weak var lbTotalPaid: UILabel!
     @IBOutlet weak var btnListTable: RoundedButton!
     @IBOutlet weak var btnGridTable: RoundedButton!
-    
+
     @IBOutlet weak var underlineBtn: UIView!{
         didSet{
             underlineBtn.translatesAutoresizingMaskIntoConstraints = true
@@ -38,6 +41,9 @@ var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 170)
         
         //View status change frame animation, width increase slow by 50%
         let progress = (frame.height - kNavigationSize)/(kTableHeaderHeight - kNavigationSize)
+        lbTotalRemain.alpha = progress
+        lbTotalPaid.alpha = progress
+        lbTotalMoney.alpha = progress
     }
     
     func updateUnderlinePosition(selectedButton: UIButton){

@@ -95,6 +95,14 @@ extension DataHandling {
     func addProduct(productModel: ProductInfoModel){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
+        
+        //Set ID auto increasement
+        var newId:Int64 = 0;
+        let allProduct = fetchAllProductWithoutPredicate()
+        if allProduct.count > 0{
+            newId = allProduct[0].productId + 1
+        }
+        //
         let productObj = ProductInfo(context: managedObjectContext)
         productObj.name = productModel.name
         productObj.quantity = productModel.quantity
@@ -102,9 +110,7 @@ extension DataHandling {
         productObj.paid = productModel.paid
         productObj.status = productModel.status
         productObj.note = productModel.note
-                    
-        let recordID = Int64(fetchAllProduct(userInfo: productModel.ofUser!).count + 1)
-        productObj.productId = recordID
+        productObj.productId = newId
         productObj.ofUser = productModel.ofUser
         do {
             try managedObjectContext.save()
@@ -133,6 +139,25 @@ extension DataHandling {
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<ProductInfo>(entityName: "ProductInfo")
         fetchRequest.predicate = NSPredicate(format: "ofUser == %@", userInfo)
+        
+        do {
+            let tasks = try managedObjectContext.fetch(fetchRequest)
+            return tasks
+        }
+        catch let error as NSError {
+            print(error)
+            return [ProductInfo]()
+        }
+    }
+    
+    func fetchAllProductWithoutPredicate() -> [ProductInfo]{
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [ProductInfo]() }
+        let managedObjectContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<ProductInfo>(entityName: "ProductInfo")
+        // Sort Descriptor
+        let idDescriptor: NSSortDescriptor = NSSortDescriptor(key: "productId", ascending: false)
+        fetchRequest.sortDescriptors = [idDescriptor]
+        
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)
             return tasks
