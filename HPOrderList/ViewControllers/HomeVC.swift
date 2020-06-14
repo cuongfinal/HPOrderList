@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeVC: BaseVC {
-
+    var dataSource = [UserInfo]()
+    var filteredUsers = [UserInfo]()
+    
     @IBOutlet weak var tbUserlist: UITableView! {
         didSet {
             tbUserlist.register(UINib.init(nibName: "UserInfoCell", bundle: nil), forCellReuseIdentifier: "userInfoCell")
@@ -17,7 +19,7 @@ class HomeVC: BaseVC {
             tbUserlist.showsVerticalScrollIndicator = false
             tbUserlist.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             tbUserlist.backgroundColor = UIColor.white
-            tbUserlist.estimatedRowHeight = 85
+            tbUserlist.estimatedRowHeight = 107
             tbUserlist.rowHeight = UITableView.automaticDimension
         }
     }
@@ -25,6 +27,7 @@ class HomeVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupSearchBar()
+        reloadData()
     }
     
     override func viewDidLoad() {
@@ -58,9 +61,29 @@ class HomeVC: BaseVC {
         definesPresentationContext = true
     }
     
+//    func  updateSearchResultsForSearchController(searchController:UISearchController) {
+//        if let searchText = searchController.searchBar.text?.lowercased() {
+//            if searchText.count == 0 {
+//                filteredUsers = dataSource
+//            }
+//            else {
+//                filteredUsers =  [UserInfo]().filter {
+//                    return $0.username?.lowercased().contains(searchText) ?? false ||
+//                        $0.phoneNumber?.lowercased().contains(searchText) ?? false
+//                }
+//            }
+//        }
+//        self.tbUserlist.reloadData()
+//    }
+    
     @objc func rightBtnAction() {
         let createUserVC = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "createUserVC") as! CreateUserVC
         CommonUtil.push(createUserVC, from: self, andCanBack: true, hideBottom: true)
+    }
+    
+    func reloadData(){
+        dataSource = DataHandling().fetchAllUser()
+        tbUserlist.reloadData()
     }
 }
 
@@ -70,27 +93,45 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        25
+        dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "userInfoCell") as! UserInfoCell
-        cell.configure()
+        let cellData = dataSource[indexPath.row]
+        cell.configure(userInfo: cellData)
         cell.backgroundColor = .clear
         return cell
     }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let cellData = dataSource[indexPath.row]
         let askAction = UIContextualAction(style: .normal, title: nil) { action, view, complete in
-            print("Delete tapped")
+            DataHandling().deleteUser(userName: cellData.username ?? "")
+            self.reloadData()
         }
         askAction.image = UIImage.init(named: "delete-icon")
         askAction.backgroundColor = UIColor.editBGColor
         
-        return UISwipeActionsConfiguration(actions: [askAction])
+        let editAction = UIContextualAction(style: .normal, title: nil) { action, view, complete in
+            let editUserVC = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "editUserVC") as! EditUserVC
+            editUserVC.userInfo = cellData
+            CommonUtil.push(editUserVC, from: self, andCanBack: true, hideBottom: true)
+        }
+        editAction.image = UIImage.init(named: "edit-icon")
+        editAction.backgroundColor = UIColor.editBGColor
+        
+        return UISwipeActionsConfiguration(actions: [askAction, editAction])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userDetailVC = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "userDetailVC") as! UserDetailVC
+        userDetailVC.userInfo = dataSource[indexPath.row]
+        CommonUtil.push(userDetailVC, from: self, andCanBack: true, hideBottom: true)
     }
 }
 

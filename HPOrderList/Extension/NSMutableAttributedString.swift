@@ -26,7 +26,7 @@ extension NSMutableAttributedString {
     
     func attributedHalfOfString(fullString: String, stringSemiBold: String) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
-               paragraphStyle.alignment = .center
+               paragraphStyle.alignment = .left
                
         let attributedString = NSMutableAttributedString(string: fullString, attributes: [
             .font: SFProText.regular(size: 12),

@@ -83,6 +83,8 @@ class FInputView: BaseXibView {
             if let number = Int(value.replacingOccurrences(of: ",", with: "")){
                 currencyInputted = number
             }
+            hasTitle = txtInput.text?.count ?? 0 > 0
+            title = placeHolder
             delegate?.valueChanged(self, value: value)
         }
     }

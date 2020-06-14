@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="dZ3-UT-t41" customClass="UserDetailHeaderView" customModule="HPOrderList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-detail" translatesAutoresizingMaskIntoConstraints="NO" id="D0x-U8-ixh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJC-DO-IlV" customClass="SNavigationView" customModule="HPOrderList" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="375" height="65"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eJC-DO-IlV" secondAttribute="height" multiplier="75:13" id="ezv-8m-fcS"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="leftButtonColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="showRightButton" value="YES"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="rightButtonColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="rightButtonTitle" value="Xoá hết"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Tên Gói"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7T-gv-t5M" customClass="RoundedView" customModule="HPOrderList" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="250" width="375" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3xt-Y9-9QV">
+                            <rect key="frame" x="15" y="0.0" width="345" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8S-pO-30x" customClass="RoundedButton" customModule="HPOrderList" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="172.5" height="46"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="12"/>
+                                    <state key="normal" title="XEM DẠNG DANH SÁCH">
+                                        <color key="titleColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="groupButtonEnable" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="bgColorNormal">
+                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="useGradient" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                            <color key="value" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYe-FJ-Ywp" customClass="RoundedButton" customModule="HPOrderList" customModuleProvider="target">
+                                    <rect key="frame" x="172.5" y="0.0" width="172.5" height="46"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="12"/>
+                                    <state key="normal" title="XEM DẠNG LƯỚI">
+                                        <color key="titleColor" red="0.62745098040000002" green="0.64705882349999999" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="groupButtonEnable" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="bgColorNormal">
+                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="useGradient" value="NO"/>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="i8S-pO-30x" firstAttribute="top" secondItem="3xt-Y9-9QV" secondAttribute="top" id="723-en-QvI"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnK-oO-mn8">
+                            <rect key="frame" x="20" y="46" width="187.5" height="3"/>
+                            <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="3" id="R2m-Rf-Hba"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neX-pd-AC1">
+                            <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.92941176469999998" green="0.93333333330000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="efH-kX-D9r"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="B7T-gv-t5M" secondAttribute="height" multiplier="15:2" id="3q7-Fd-fK6"/>
+                        <constraint firstItem="3xt-Y9-9QV" firstAttribute="centerX" secondItem="B7T-gv-t5M" secondAttribute="centerX" id="3rK-89-v4W"/>
+                        <constraint firstItem="3xt-Y9-9QV" firstAttribute="top" secondItem="B7T-gv-t5M" secondAttribute="top" id="E9c-qW-yeh"/>
+                        <constraint firstItem="3xt-Y9-9QV" firstAttribute="width" secondItem="B7T-gv-t5M" secondAttribute="width" multiplier="345:375" id="X56-kK-zAQ"/>
+                        <constraint firstItem="MnK-oO-mn8" firstAttribute="width" secondItem="B7T-gv-t5M" secondAttribute="width" multiplier="0.5" id="bH6-Aa-Knu"/>
+                        <constraint firstItem="neX-pd-AC1" firstAttribute="top" secondItem="MnK-oO-mn8" secondAttribute="bottom" id="eb0-ZN-YZz"/>
+                        <constraint firstItem="neX-pd-AC1" firstAttribute="width" secondItem="B7T-gv-t5M" secondAttribute="width" id="gTT-JN-Iq5"/>
+                        <constraint firstItem="MnK-oO-mn8" firstAttribute="leading" secondItem="B7T-gv-t5M" secondAttribute="leading" constant="20" id="j87-lN-ytT">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                        <constraint firstAttribute="width" secondItem="B7T-gv-t5M" secondAttribute="height" multiplier="375:50" id="o1H-V3-nkl"/>
+                        <constraint firstAttribute="bottom" secondItem="neX-pd-AC1" secondAttribute="bottom" id="oyn-u3-DBc"/>
+                        <constraint firstItem="neX-pd-AC1" firstAttribute="centerX" secondItem="B7T-gv-t5M" secondAttribute="centerX" id="pzO-Nm-23I"/>
+                        <constraint firstItem="MnK-oO-mn8" firstAttribute="top" secondItem="3xt-Y9-9QV" secondAttribute="bottom" id="qtj-gs-goR"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerType">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="eJC-DO-IlV" firstAttribute="leading" secondItem="GJ0-zC-CEk" secondAttribute="leading" id="4Ap-09-LtD"/>
+                <constraint firstItem="D0x-U8-ixh" firstAttribute="top" secondItem="dZ3-UT-t41" secondAttribute="top" id="4fS-cs-yKE"/>
+                <constraint firstItem="eJC-DO-IlV" firstAttribute="top" secondItem="GJ0-zC-CEk" secondAttribute="top" id="CcK-9a-f9a"/>
+                <constraint firstItem="GJ0-zC-CEk" firstAttribute="bottom" secondItem="B7T-gv-t5M" secondAttribute="bottom" id="HqL-qy-WNp"/>
+                <constraint firstItem="B7T-gv-t5M" firstAttribute="leading" secondItem="GJ0-zC-CEk" secondAttribute="leading" id="MFr-sj-0JN"/>
+                <constraint firstItem="D0x-U8-ixh" firstAttribute="trailing" secondItem="GJ0-zC-CEk" secondAttribute="trailing" id="MQh-nN-DUl"/>
+                <constraint firstItem="D0x-U8-ixh" firstAttribute="leading" secondItem="GJ0-zC-CEk" secondAttribute="leading" id="OVC-fu-dSc"/>
+                <constraint firstAttribute="trailing" secondItem="B7T-gv-t5M" secondAttribute="trailing" id="oYi-PC-w3J"/>
+                <constraint firstItem="eJC-DO-IlV" firstAttribute="trailing" secondItem="GJ0-zC-CEk" secondAttribute="trailing" id="scw-0E-gDE"/>
+                <constraint firstItem="B7T-gv-t5M" firstAttribute="width" secondItem="B7T-gv-t5M" secondAttribute="height" multiplier="375:50" id="tOH-vK-eD9"/>
+                <constraint firstItem="D0x-U8-ixh" firstAttribute="bottom" secondItem="GJ0-zC-CEk" secondAttribute="bottom" id="u6u-HL-h8N"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="GJ0-zC-CEk"/>
+            <connections>
+                <outlet property="btnGridTable" destination="gYe-FJ-Ywp" id="r5N-2F-2Am"/>
+                <outlet property="btnListTable" destination="i8S-pO-30x" id="p8n-BF-QWv"/>
+                <outlet property="navigationView" destination="eJC-DO-IlV" id="OwJ-VP-sY2"/>
+                <outlet property="stackViewBtn" destination="3xt-Y9-9QV" id="hvV-tp-Yxc"/>
+                <outlet property="underlineBtn" destination="MnK-oO-mn8" id="Lww-1i-xHs"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="122.54464285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="placeholder-detail" width="313" height="208.5"/>
+    </resources>
+</document>

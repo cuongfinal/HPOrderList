@@ -13,6 +13,7 @@ class UserInfoCell: UITableViewCell {
     @IBOutlet weak var lbUsername: UILabel!
     @IBOutlet weak var lbAddress: UILabel!
     @IBOutlet weak var lbPhoneNumber: UILabel!
+    @IBOutlet weak var lbOthers: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,12 +27,14 @@ class UserInfoCell: UITableViewCell {
     }
     
     
-    func configure(){
+    func configure(userInfo: UserInfo){
+        lbUsername.text = userInfo.username
+        lbPhoneNumber.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "SĐT: %@", userInfo.phoneNumber ?? ""), stringSemiBold: userInfo.phoneNumber ?? "")
         //
-        //            lbUsername.text = ""
+        lbAddress.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Địa chỉ: %@", userInfo.address ?? ""), stringSemiBold: userInfo.address ?? "")
+        
         //
-        lbPhoneNumber.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "SĐT: %@", "123456789"), stringSemiBold: "123456789")
-        //
-        lbAddress.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Địa chỉ: %@", "Hong pít :|"), stringSemiBold: "Hong pít :|")
+        let otherStr = userInfo.others!.count > 0 ? userInfo.others : "Không có"
+        lbOthers.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Thông tin khác: %@", otherStr ?? ""), stringSemiBold: otherStr ?? "")
     }
 }

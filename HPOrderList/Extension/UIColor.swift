@@ -22,7 +22,7 @@ extension UIColor {
     
     //#E5E5E5
     static var bgColor: UIColor {
-           return UIColor.init(r: 248, g: 249, b: 250, a: 1)
+        return UIColor.init(r: 248, g: 249, b: 250, a: 1)
     }
     
     //#1B2031
@@ -32,7 +32,7 @@ extension UIColor {
     
     //#EDEEF1
     static var editBGColor: UIColor {
-           return UIColor.init(r: 237, g: 238, b: 241, a: 1)
+        return UIColor.init(r: 237, g: 238, b: 241, a: 1)
     }
     
     static var inputBorderColor = UIColor.init(r: 229, g: 233, b: 238, a: 1)
@@ -42,7 +42,15 @@ extension UIColor {
     }
     
     //#E6E9EE
-     static var veryLightBlue: UIColor {
-         return UIColor.init(r: 230, g: 233, b: 238, a: 1)
-     }
+    static var veryLightBlue: UIColor {
+        return UIColor.init(r: 230, g: 233, b: 238, a: 1)
+    }
+    
+    static var paleBlue: UIColor {
+        return UIColor.init(r: 224, g: 228, b: 233, a: 1)
+    }
+ 
+    static var blueyGrey: UIColor {
+        return UIColor.init(r: 160, g: 165, b: 181, a: 1)
+    }
 }

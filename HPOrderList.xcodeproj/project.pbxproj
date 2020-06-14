@@ -3,11 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		27574C6ACF84034A5DDA251A /* Pods_HPOrderList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD00F23183E1A8FFE55026EE /* Pods_HPOrderList.framework */; };
+		5F96FAF524962459009AA3D1 /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF424962459009AA3D1 /* UserDetailVC.swift */; };
+		5F96FAF724962489009AA3D1 /* ListProductTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */; };
+		5F96FAF9249624BB009AA3D1 /* ListProductGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */; };
+		5F96FAFC24962629009AA3D1 /* UserDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAFA24962629009AA3D1 /* UserDetailHeaderView.swift */; };
+		5F96FAFD24962629009AA3D1 /* UserDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F96FAFB24962629009AA3D1 /* UserDetailHeaderView.xib */; };
+		5F96FB04249626FB009AA3D1 /* SNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAFF249626FB009AA3D1 /* SNavigationView.swift */; };
+		5F96FB05249626FB009AA3D1 /* SNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F96FB00249626FB009AA3D1 /* SNavigationView.xib */; };
+		5F96FB06249626FB009AA3D1 /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FB02249626FB009AA3D1 /* SSRadioButtonsController.swift */; };
+		5F96FB07249626FB009AA3D1 /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FB03249626FB009AA3D1 /* SSRadioButton.swift */; };
+		5F9E219C249668EC00E0C862 /* EditUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E219B249668EC00E0C862 /* EditUserVC.swift */; };
+		5F9E219E24967B7F00E0C862 /* EditProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E219D24967B7F00E0C862 /* EditProductVC.swift */; };
+		5F9E21A624967BE500E0C862 /* SSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E21A024967BE500E0C862 /* SSwitchView.xib */; };
+		5F9E21A724967BE500E0C862 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21A224967BE500E0C862 /* CustomSwitch.swift */; };
+		5F9E21A824967BE500E0C862 /* CustomThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21A324967BE500E0C862 /* CustomThumbView.swift */; };
+		5F9E21A924967BE500E0C862 /* SSwicher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21A424967BE500E0C862 /* SSwicher.swift */; };
+		5F9E21AA24967BE500E0C862 /* SSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21A524967BE500E0C862 /* SSwitchView.swift */; };
+		5F9E21AF24967E4600E0C862 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21AB24967E4600E0C862 /* UserInfo+CoreDataClass.swift */; };
+		5F9E21B024967E4600E0C862 /* ProductInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21AC24967E4600E0C862 /* ProductInfo+CoreDataClass.swift */; };
+		5F9E21B124967E4600E0C862 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21AD24967E4600E0C862 /* UserInfo+CoreDataProperties.swift */; };
+		5F9E21B224967E4600E0C862 /* ProductInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E21AE24967E4600E0C862 /* ProductInfo+CoreDataProperties.swift */; };
+		5FD7DF5E24964EFA00CEC079 /* ProductInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF5C24964EFA00CEC079 /* ProductInfoCell.swift */; };
+		5FD7DF5F24964EFA00CEC079 /* ProductInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD7DF5D24964EFA00CEC079 /* ProductInfoCell.xib */; };
+		5FD7DF722496581600CEC079 /* DataHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF712496581600CEC079 /* DataHandling.swift */; };
+		5FD7DF742496596C00CEC079 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF732496596C00CEC079 /* UserInfoModel.swift */; };
+		5FD7DF77249659B300CEC079 /* ProductInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF76249659B300CEC079 /* ProductInfoModel.swift */; };
 		D4A3491E248629D4004330E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3491D248629D4004330E3 /* AppDelegate.swift */; };
 		D4A34925248629D4004330E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A34923248629D4004330E3 /* Main.storyboard */; };
 		D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4A34926248629D4004330E3 /* HPOrderList.xcdatamodeld */; };
@@ -57,6 +82,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F96FAF424962459009AA3D1 /* UserDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
+		5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductTableVC.swift; sourceTree = "<group>"; };
+		5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductGridVC.swift; sourceTree = "<group>"; };
+		5F96FAFA24962629009AA3D1 /* UserDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailHeaderView.swift; sourceTree = "<group>"; };
+		5F96FAFB24962629009AA3D1 /* UserDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailHeaderView.xib; sourceTree = "<group>"; };
+		5F96FAFF249626FB009AA3D1 /* SNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNavigationView.swift; sourceTree = "<group>"; };
+		5F96FB00249626FB009AA3D1 /* SNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SNavigationView.xib; sourceTree = "<group>"; };
+		5F96FB02249626FB009AA3D1 /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
+		5F96FB03249626FB009AA3D1 /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
+		5F9E219B249668EC00E0C862 /* EditUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserVC.swift; sourceTree = "<group>"; };
+		5F9E219D24967B7F00E0C862 /* EditProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductVC.swift; sourceTree = "<group>"; };
+		5F9E21A024967BE500E0C862 /* SSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSwitchView.xib; sourceTree = "<group>"; };
+		5F9E21A224967BE500E0C862 /* CustomSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
+		5F9E21A324967BE500E0C862 /* CustomThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThumbView.swift; sourceTree = "<group>"; };
+		5F9E21A424967BE500E0C862 /* SSwicher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSwicher.swift; sourceTree = "<group>"; };
+		5F9E21A524967BE500E0C862 /* SSwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSwitchView.swift; sourceTree = "<group>"; };
+		5F9E21AB24967E4600E0C862 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F9E21AC24967E4600E0C862 /* ProductInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F9E21AD24967E4600E0C862 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5F9E21AE24967E4600E0C862 /* ProductInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5FD7DF5C24964EFA00CEC079 /* ProductInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoCell.swift; sourceTree = "<group>"; };
+		5FD7DF5D24964EFA00CEC079 /* ProductInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductInfoCell.xib; sourceTree = "<group>"; };
+		5FD7DF712496581600CEC079 /* DataHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandling.swift; sourceTree = "<group>"; };
+		5FD7DF732496596C00CEC079 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		5FD7DF76249659B300CEC079 /* ProductInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoModel.swift; sourceTree = "<group>"; };
 		D00570F94CFDE25DD5D6811F /* Pods-HPOrderList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPOrderList.debug.xcconfig"; path = "Target Support Files/Pods-HPOrderList/Pods-HPOrderList.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A3491A248629D4004330E3 /* HPOrderList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HPOrderList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A3491D248629D4004330E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +181,65 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5F96FAFE249626FB009AA3D1 /* SNavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				5F96FAFF249626FB009AA3D1 /* SNavigationView.swift */,
+				5F96FB00249626FB009AA3D1 /* SNavigationView.xib */,
+			);
+			path = SNavigationView;
+			sourceTree = "<group>";
+		};
+		5F96FB01249626FB009AA3D1 /* SSRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				5F96FB02249626FB009AA3D1 /* SSRadioButtonsController.swift */,
+				5F96FB03249626FB009AA3D1 /* SSRadioButton.swift */,
+			);
+			path = SSRadioButton;
+			sourceTree = "<group>";
+		};
+		5F9E219F24967BE500E0C862 /* SSwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E21A024967BE500E0C862 /* SSwitchView.xib */,
+				5F9E21A124967BE500E0C862 /* SSwitcher */,
+				5F9E21A424967BE500E0C862 /* SSwicher.swift */,
+				5F9E21A524967BE500E0C862 /* SSwitchView.swift */,
+			);
+			path = SSwitchView;
+			sourceTree = "<group>";
+		};
+		5F9E21A124967BE500E0C862 /* SSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E21A224967BE500E0C862 /* CustomSwitch.swift */,
+				5F9E21A324967BE500E0C862 /* CustomThumbView.swift */,
+			);
+			path = SSwitcher;
+			sourceTree = "<group>";
+		};
+		5FD7DF602496578D00CEC079 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E21AC24967E4600E0C862 /* ProductInfo+CoreDataClass.swift */,
+				5F9E21AE24967E4600E0C862 /* ProductInfo+CoreDataProperties.swift */,
+				5F9E21AB24967E4600E0C862 /* UserInfo+CoreDataClass.swift */,
+				5F9E21AD24967E4600E0C862 /* UserInfo+CoreDataProperties.swift */,
+				5FD7DF752496597600CEC079 /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5FD7DF752496597600CEC079 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5FD7DF732496596C00CEC079 /* UserInfoModel.swift */,
+				5FD7DF76249659B300CEC079 /* ProductInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		623E0C87CD369BFBF8F6AA47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +269,7 @@
 		D4A3491C248629D4004330E3 /* HPOrderList */ = {
 			isa = PBXGroup;
 			children = (
+				5FD7DF602496578D00CEC079 /* Data */,
 				D4DFF30F248A3B0D009CA13E /* Utils */,
 				D4DFF2D9248A3734009CA13E /* Shared */,
 				D4DFF2D6248A36CF009CA13E /* Extension */,
@@ -206,6 +316,9 @@
 		D4DFF2D9248A3734009CA13E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5F9E219F24967BE500E0C862 /* SSwitchView */,
+				5F96FAFE249626FB009AA3D1 /* SNavigationView */,
+				5F96FB01249626FB009AA3D1 /* SSRadioButton */,
 				D4E92E272492290100A1F429 /* BaseTextField.swift */,
 				D4E92E232492279400A1F429 /* FConfirmButton.swift */,
 				D4E92E1E2492267700A1F429 /* FInputView */,
@@ -257,6 +370,7 @@
 			children = (
 				D4DFF310248A3B1B009CA13E /* CommonUtil.swift */,
 				D4DFF312248A3B44009CA13E /* Constants.swift */,
+				5FD7DF712496581600CEC079 /* DataHandling.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -267,7 +381,12 @@
 				D4DFF31B248A4134009CA13E /* View */,
 				D4E92E1C2492244A00A1F429 /* UserManage.storyboard */,
 				D4E92E252492281D00A1F429 /* CreateUserVC.swift */,
+				5F9E219B249668EC00E0C862 /* EditUserVC.swift */,
+				5F96FAF424962459009AA3D1 /* UserDetailVC.swift */,
+				5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */,
+				5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */,
 				D4E92E2924922E1F00A1F429 /* CreateProductVC.swift */,
+				5F9E219D24967B7F00E0C862 /* EditProductVC.swift */,
 			);
 			path = UserManagement;
 			sourceTree = "<group>";
@@ -283,8 +402,12 @@
 		D4DFF31B248A4134009CA13E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5F96FAFA24962629009AA3D1 /* UserDetailHeaderView.swift */,
+				5F96FAFB24962629009AA3D1 /* UserDetailHeaderView.xib */,
 				D4DFF31C248A416E009CA13E /* UserInfoCell.swift */,
 				D4DFF31D248A416E009CA13E /* UserInfoCell.xib */,
+				5FD7DF5C24964EFA00CEC079 /* ProductInfoCell.swift */,
+				5FD7DF5D24964EFA00CEC079 /* ProductInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,15 +496,19 @@
 				D4DFF316248A3F45009CA13E /* Localizable.strings in Resources */,
 				D4DFF324248A4DC6009CA13E /* SettingCell.xib in Resources */,
 				D4DFF309248A3AB2009CA13E /* SF-Pro-Display-Medium.otf in Resources */,
+				5F96FAFD24962629009AA3D1 /* UserDetailHeaderView.xib in Resources */,
 				D4DFF30D248A3AB2009CA13E /* SF-Pro-Text-Semibold.otf in Resources */,
 				D4A3492D248629D6004330E3 /* LaunchScreen.storyboard in Resources */,
 				D4A3492A248629D6004330E3 /* Assets.xcassets in Resources */,
 				D4DFF30E248A3AB2009CA13E /* SF-Pro-Text-Medium.otf in Resources */,
 				D4DFF307248A3AB2009CA13E /* SF-Pro-Display-Light.otf in Resources */,
 				D4DFF31F248A416E009CA13E /* UserInfoCell.xib in Resources */,
+				5FD7DF5F24964EFA00CEC079 /* ProductInfoCell.xib in Resources */,
 				D4DFF308248A3AB2009CA13E /* SF-Pro-Display-Regular.otf in Resources */,
 				D4DFF30C248A3AB2009CA13E /* SF-Pro-Text-Regular.otf in Resources */,
+				5F9E21A624967BE500E0C862 /* SSwitchView.xib in Resources */,
 				D4DFF30A248A3AB2009CA13E /* SF-Pro-Text-Light.otf in Resources */,
+				5F96FB05249626FB009AA3D1 /* SNavigationView.xib in Resources */,
 				D4A34925248629D4004330E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,32 +562,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9E21B124967E4600E0C862 /* UserInfo+CoreDataProperties.swift in Sources */,
+				5F9E21B224967E4600E0C862 /* ProductInfo+CoreDataProperties.swift in Sources */,
+				5F9E21A924967BE500E0C862 /* SSwicher.swift in Sources */,
 				D4DFF2F6248A3A2E009CA13E /* AutoResizeFontSize.swift in Sources */,
 				D4DFF2FC248A3A71009CA13E /* SettingVC.swift in Sources */,
+				5F9E219E24967B7F00E0C862 /* EditProductVC.swift in Sources */,
 				D4DFF2EE248A39F0009CA13E /* UIView.swift in Sources */,
 				D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */,
 				D4E92E2A24922E1F00A1F429 /* CreateProductVC.swift in Sources */,
+				5F96FB06249626FB009AA3D1 /* SSRadioButtonsController.swift in Sources */,
 				D4E92E212492267700A1F429 /* FInputView.swift in Sources */,
+				5FD7DF742496596C00CEC079 /* UserInfoModel.swift in Sources */,
 				D4DFF2EB248A39F0009CA13E /* UITextField.swift in Sources */,
 				D4DFF2F9248A3A2E009CA13E /* BaseVC.swift in Sources */,
 				D4DFF313248A3B44009CA13E /* Constants.swift in Sources */,
 				D4DFF2FA248A3A2E009CA13E /* BaseXibView.swift in Sources */,
+				5F96FAF524962459009AA3D1 /* UserDetailVC.swift in Sources */,
 				D4DFF31E248A416E009CA13E /* UserInfoCell.swift in Sources */,
 				D4DFF2DB248A377A009CA13E /* UIImage.swift in Sources */,
+				5F9E219C249668EC00E0C862 /* EditUserVC.swift in Sources */,
+				5F96FB04249626FB009AA3D1 /* SNavigationView.swift in Sources */,
 				D4DFF2D8248A36DD009CA13E /* UIColor.swift in Sources */,
+				5F96FAFC24962629009AA3D1 /* UserDetailHeaderView.swift in Sources */,
 				D4DFF2DD248A3953009CA13E /* HomeVC.swift in Sources */,
+				5F9E21A824967BE500E0C862 /* CustomThumbView.swift in Sources */,
 				D4E92E262492281D00A1F429 /* CreateUserVC.swift in Sources */,
+				5F9E21A724967BE500E0C862 /* CustomSwitch.swift in Sources */,
 				D4DFF2F8248A3A2E009CA13E /* BaseNavigationVC.swift in Sources */,
+				5F96FAF724962489009AA3D1 /* ListProductTableVC.swift in Sources */,
+				5FD7DF5E24964EFA00CEC079 /* ProductInfoCell.swift in Sources */,
+				5F9E21B024967E4600E0C862 /* ProductInfo+CoreDataClass.swift in Sources */,
 				D4DFF2EA248A39F0009CA13E /* NSLayoutConstraint.swift in Sources */,
+				5F9E21AA24967BE500E0C862 /* SSwitchView.swift in Sources */,
 				D4DFF2EC248A39F0009CA13E /* UIFont.swift in Sources */,
 				D4E92E282492290100A1F429 /* BaseTextField.swift in Sources */,
 				D4DFF2E9248A39F0009CA13E /* NSMutableAttributedString.swift in Sources */,
 				D4DFF311248A3B1B009CA13E /* CommonUtil.swift in Sources */,
+				5F96FAF9249624BB009AA3D1 /* ListProductGridVC.swift in Sources */,
+				5FD7DF722496581600CEC079 /* DataHandling.swift in Sources */,
 				D4DFF2EF248A39F0009CA13E /* Array.swift in Sources */,
 				D4DFF323248A4DC6009CA13E /* SettingCell.swift in Sources */,
+				5F9E21AF24967E4600E0C862 /* UserInfo+CoreDataClass.swift in Sources */,
 				D4DFF2E8248A39F0009CA13E /* String.swift in Sources */,
 				D4DFF2ED248A39F0009CA13E /* CALayer.swift in Sources */,
+				5F96FB07249626FB009AA3D1 /* SSRadioButton.swift in Sources */,
 				D4DFF2D4248A3671009CA13E /* MainTabbarController.swift in Sources */,
+				5FD7DF77249659B300CEC079 /* ProductInfoModel.swift in Sources */,
 				D4A3491E248629D4004330E3 /* AppDelegate.swift in Sources */,
 				D4DFF2F7248A3A2E009CA13E /* RoundedComponent.swift in Sources */,
 				D4DFF2F0248A39F0009CA13E /* UIViewController.swift in Sources */,
@@ -617,7 +765,7 @@
 			baseConfigurationReference = D00570F94CFDE25DD5D6811F /* Pods-HPOrderList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Le Quang Tuan Cuong (48HJA497TD)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
@@ -627,7 +775,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cuongfinal.orderlist.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = OrderListDev;
+				PROVISIONING_PROFILE_SPECIFIER = "Orderlist-Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -638,7 +786,7 @@
 			baseConfigurationReference = E6D78EA2BE475B6536B0AF8B /* Pods-HPOrderList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Le Quang Tuan Cuong (48HJA497TD)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
@@ -648,7 +796,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cuongfinal.orderlist.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = OrderListDev;
+				PROVISIONING_PROFILE_SPECIFIER = "Orderlist-Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

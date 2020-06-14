@@ -12,6 +12,7 @@ class CreateUserVC: BaseVCCanBack {
     @IBOutlet weak var ivName: FInputView!
     @IBOutlet weak var ivPhone: FInputView!
     @IBOutlet weak var ivAddress: FInputView!
+    @IBOutlet weak var ivOthers: FInputView!
     @IBOutlet weak var btnCreate: FConfirmButton!
     
     override func viewDidLoad() {
@@ -24,7 +25,9 @@ class CreateUserVC: BaseVCCanBack {
     }
     
     @IBAction func createBtnTapped(_ sender: Any) {
-        
+        let userModel = UserInfoModel(username: ivName.value, phoneNumber: ivPhone.value, address: ivAddress.value, others: ivOthers.value)
+        DataHandling().addUser(userModel: userModel)
+        goBack()
     }
     
     private func reloadBtnSubmit(){
