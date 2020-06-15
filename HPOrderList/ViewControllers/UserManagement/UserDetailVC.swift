@@ -47,9 +47,11 @@ class UserDetailVC: BaseVC {
         var paid: Int64 = 0
         var remaining: Int64 = 0
         for product in dataSource {
-            total += (product.price * Int64(product.quantity))
-            paid +=  product.paid
-            remaining += (product.price * Int64(product.quantity)) - product.paid
+            if !product.status {
+                total += (product.price * Int64(product.quantity))
+                paid +=  product.paid
+                remaining += (product.price * Int64(product.quantity)) - product.paid
+            }
         }
         headerView.lbTotalMoney.text = String(format: "Tổng số tiền: %@", CommonUtil.convertCurrency(total))
         headerView.lbTotalRemain.text = String(format: "Tổng số tiền còn lại: %@", CommonUtil.convertCurrency(remaining))
@@ -75,6 +77,7 @@ class UserDetailVC: BaseVC {
     func setupUIHeader(){
         let customHeaderView = Bundle.main.loadNibNamed("UserDetailHeaderView", owner: self, options: nil)?.first as! UserDetailHeaderView
         headerView = customHeaderView
+        headerView.delegate = self
         view.addSubview(headerView)
         headerView.frame.size = CGSize(width: view.frame.width, height: kTableHeaderHeight)
         view.bringSubviewToFront(headerView)
@@ -89,10 +92,10 @@ class UserDetailVC: BaseVC {
     }
     
     func setupSelectedTableTabbar(){
-        btnController = SSRadioButtonsController.init(buttons: headerView.btnListTable, headerView.btnGridTable)
-        btnController!.delegate = self
-        btnController!.shouldLetDeSelect = false
-        headerView.btnListTable.isSelected = true
+//        btnController = SSRadioButtonsController.init(buttons: headerView.btnListTable, headerView.btnGridTable)
+//        btnController!.delegate = self
+//        btnController!.shouldLetDeSelect = false
+//        headerView.btnListTable.isSelected = true
     }
     
     @IBAction func mainActionTapped(_ sender: Any) {
@@ -107,6 +110,13 @@ class UserDetailVC: BaseVC {
     }
 }
 
+extension UserDetailVC : UserDetailHeaderViewDelegate {
+    func openGridTable() {
+        let gridView = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "listProductGridVC") as! ListProductGridVC
+        gridView.configure(productInfo: dataSource)
+        CommonUtil.present(gridView, from: self)
+    }
+}
 extension UserDetailVC: ListProductTableVCDetagate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         headerView.updateHeaderView(scrollView: scrollView)
@@ -117,24 +127,15 @@ extension UserDetailVC: ListProductTableVCDetagate {
     }
 }
 
-extension UserDetailVC: SSRadioButtonControllerDelegate{
-    func didSelectButton(selectedButton: UIButton?) {
-//        if let selectedBtn = selectedButton {
-//            let indexPath = IndexPath(row: 0, section: btnController?.buttonIndex(selectedBtn) ?? 0)
-//
-//            //Re-coordinate table offset position
-//            DispatchQueue.main.async {
-//                if indexPath.section > 0{
-//                    self.mainTableView.tableView.contentOffset = CGPoint(x: 0, y: self.mainTableView.tableView.contentOffset.y + self.headerView.frame.height)
-//                }else{
-//                    self.mainTableView.tableView.contentOffset = CGPoint(x: 0, y: -self.headerView.frame.height)
-//                }
-//            }
-//
-//            headerView.updateUnderlinePosition(selectedButton: selectedBtn)
+//extension UserDetailVC: SSRadioButtonControllerDelegate{
+//    func didSelectButton(selectedButton: UIButton?) {
+//        if selectedButton == headerView.btnGridTable {
+//            let gridView = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "listProductGridVC") as! ListProductGridVC
+//            gridView.configure(productInfo: dataSource)
+//            CommonUtil.present(gridView, from: self)
 //        }
-    }
-}
+//    }
+//}
 
 
 extension UserDetailVC: SNavigationViewDelegate{

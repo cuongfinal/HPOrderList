@@ -23,4 +23,11 @@ extension UIView {
             UIView._hasErrorShown[tmpAddress] = newValue
         }
     }
+    
+    func rotate(angle: CGFloat) {
+        let radians = angle / 180.0 * CGFloat.pi
+        let rotation = self.transform.rotated(by: radians);
+        self.transform = rotation
+        self.frame = CGRect(x: 0, y: 0, width: self.frame.size.height, height: self.frame.size.width)
+    }
 }

@@ -83,13 +83,14 @@ class CommonUtil : NSObject {
     }
     
     static func present(_ target: UIViewController?, from source: UIViewController?) {
-        var navigationController: UINavigationController? = nil
-        if let target = target {
-            navigationController = UINavigationController(rootViewController: target)
-        }
-        if let navigationController = navigationController {
-            source?.navigationController?.present(navigationController, animated: true)
-        }
+           var navigationController: UINavigationController? = nil
+           if let target = target {
+               navigationController = UINavigationController(rootViewController: target)
+           }
+           if let navigationController = navigationController {
+               navigationController.modalPresentationStyle = .overFullScreen
+               source?.navigationController?.present(navigationController, animated: false)
+           }
     }
 
     static func popViewController(for vc: UIViewController?) {

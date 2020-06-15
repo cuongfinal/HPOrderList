@@ -18,6 +18,10 @@ extension UIColor {
         return UIColor.init(r: 231, g: 76, b: 60, a: 1)
     }
     
+    //#e74c3c
+    static var orangeColor: UIColor {
+        return UIColor.init(r: 230, g: 126, b: 34, a: 1)
+    }
     static var borderColor = UIColor.init(r: 229, g: 233, b: 238, a: 1)
     
     //#E5E5E5

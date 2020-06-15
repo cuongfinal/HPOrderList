@@ -10,6 +10,9 @@ import UIKit
 
 var kTableHeaderHeight:CGFloat = CommonUtil.sizeBasedOnDeviceWidth(size: 270)
 var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 170)
+protocol UserDetailHeaderViewDelegate {
+    func openGridTable()
+}
 
 @IBDesignable class UserDetailHeaderView: UIView {
     
@@ -26,7 +29,7 @@ var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 170)
     }
     @IBOutlet weak var stackViewBtn: UIStackView!
     @IBOutlet weak var navigationView: SNavigationView!
-    
+    var delegate:UserDetailHeaderViewDelegate?
     
     func updateHeaderView(scrollView: UIScrollView?) {
         if let scrollView = scrollView {
@@ -44,6 +47,12 @@ var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 170)
         lbTotalRemain.alpha = progress
         lbTotalPaid.alpha = progress
         lbTotalMoney.alpha = progress
+    }
+    
+    @IBAction func gridTableTapped(_ sender: Any) {
+        if let delegate = delegate {
+            delegate.openGridTable()
+        }
     }
     
     func updateUnderlinePosition(selectedButton: UIButton){

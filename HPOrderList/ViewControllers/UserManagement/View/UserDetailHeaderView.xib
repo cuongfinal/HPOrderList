@@ -78,6 +78,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="useGradient" value="NO"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="gridTableTapped:" destination="dZ3-UT-t41" eventType="touchUpInside" id="JbD-sR-Z9g"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>

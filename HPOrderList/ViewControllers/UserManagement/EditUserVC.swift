@@ -30,7 +30,7 @@ class EditUserVC: BaseVCCanBack {
             goBack()
             return
         }
-        ivPhone.value = userInfo.username ?? ""
+        ivPhone.value = userInfo.phoneNumber ?? ""
         ivAddress.value = userInfo.address ?? ""
         ivOther.value = userInfo.others ?? ""
     }

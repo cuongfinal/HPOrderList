@@ -7,6 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Medium.otf">
+            <string>SFProText-Medium</string>
+        </array>
         <array key="SF-Pro-Text-Regular.otf">
             <string>SFProText-Regular</string>
         </array>
@@ -703,13 +706,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số tiền còn lại: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6c-L4-syb">
-                                <rect key="frame" x="25" y="542.5" width="166" height="21"/>
+                                <rect key="frame" x="25" y="542.5" width="158.5" height="20"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0 VND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MH-aG-lGQ">
-                                <rect key="frame" x="196" y="542.5" width="203" height="21"/>
+                                <rect key="frame" x="188.5" y="542.5" width="210.5" height="20"/>
                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -801,6 +804,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxf-1D-wdM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1933" y="33"/>
+        </scene>
+        <!--List Product GridVC-->
+        <scene sceneID="4oj-8e-ovK">
+            <objects>
+                <viewController storyboardIdentifier="listProductGridVC" id="eHQ-3z-XmR" customClass="ListProductGridVC" customModule="HPOrderList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xQd-nM-N4n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLU-kh-ui8">
+                                <rect key="frame" x="20.5" y="15" width="373" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đơn vị: VND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPq-7h-YTi">
+                                        <rect key="frame" x="10" y="14" width="76" height="16"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
+                                        <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-do-FFq">
+                                        <rect key="frame" x="321" y="0.0" width="42" height="44"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="16"/>
+                                        <state key="normal" title="Đóng">
+                                            <color key="titleColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeTapped:" destination="eHQ-3z-XmR" eventType="touchUpInside" id="gJD-zx-GE9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="o4c-do-FFq" secondAttribute="trailing" constant="10" id="6wy-cW-nyj"/>
+                                    <constraint firstItem="YPq-7h-YTi" firstAttribute="centerY" secondItem="VLU-kh-ui8" secondAttribute="centerY" id="FKE-1G-POv"/>
+                                    <constraint firstItem="YPq-7h-YTi" firstAttribute="leading" secondItem="VLU-kh-ui8" secondAttribute="leading" constant="10" id="JFf-NM-SvE">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="o4c-do-FFq" firstAttribute="centerY" secondItem="VLU-kh-ui8" secondAttribute="centerY" id="Nmu-rH-Cug"/>
+                                    <constraint firstItem="o4c-do-FFq" firstAttribute="height" secondItem="VLU-kh-ui8" secondAttribute="height" id="jY1-hS-qn4"/>
+                                    <constraint firstAttribute="height" constant="44" id="r1c-ZN-WYx">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-5H-3wu">
+                                <rect key="frame" x="20.5" y="59" width="373" height="822"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VLU-kh-ui8" firstAttribute="centerX" secondItem="mnK-zD-b9L" secondAttribute="centerX" id="Nnb-FU-068"/>
+                            <constraint firstAttribute="bottom" secondItem="5VZ-5H-3wu" secondAttribute="bottom" constant="15" id="eci-3y-9ec">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="5VZ-5H-3wu" firstAttribute="width" secondItem="VLU-kh-ui8" secondAttribute="width" id="j5J-gL-SAj"/>
+                            <constraint firstItem="5VZ-5H-3wu" firstAttribute="centerX" secondItem="mnK-zD-b9L" secondAttribute="centerX" id="rsM-6Q-Tb3"/>
+                            <constraint firstItem="5VZ-5H-3wu" firstAttribute="top" secondItem="VLU-kh-ui8" secondAttribute="bottom" id="ttt-Ow-wHg"/>
+                            <constraint firstItem="VLU-kh-ui8" firstAttribute="top" secondItem="xQd-nM-N4n" secondAttribute="top" constant="15" id="vVU-T2-fQG">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VLU-kh-ui8" firstAttribute="width" secondItem="xQd-nM-N4n" secondAttribute="width" multiplier="0.9" id="vth-Co-aey"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mnK-zD-b9L"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnClose" destination="o4c-do-FFq" id="cOk-aZ-H2g"/>
+                        <outlet property="viewHeader" destination="VLU-kh-ui8" id="S1E-vk-j3m"/>
+                        <outlet property="viewTable" destination="5VZ-5H-3wu" id="kCH-XL-nwo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fw-3x-310" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2826" y="33"/>
         </scene>
     </scenes>
 </document>
