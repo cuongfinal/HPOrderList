@@ -21,7 +21,7 @@ class EditProductVC: BaseVCCanBack {
     var currentProductId = 0
     
     override func viewDidLoad() {
-        title = "Cập nhật Sản Phẩm"
+        title = "Cập Nhật Sản Phẩm"
         super.viewDidLoad()
 
         ivPrice.delegate = self

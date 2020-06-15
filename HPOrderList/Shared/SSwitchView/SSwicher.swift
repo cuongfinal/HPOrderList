@@ -22,7 +22,7 @@ class SSwicher: UISwitch {
     
     func setUpSwicher(){
         //UISwich on state color
-        self.onTintColor = UIColor.orange
+        self.onTintColor = UIColor.mainColor
         //UISwich off state color
         self.backgroundColor = UIColor.blueyGrey
         self.tintColor = UIColor.blueyGrey

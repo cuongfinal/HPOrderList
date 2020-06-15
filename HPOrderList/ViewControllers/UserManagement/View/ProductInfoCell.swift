@@ -45,7 +45,8 @@ class ProductInfoCell: UITableViewCell {
         lbPaid.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Tiền cọc: %@", CommonUtil.convertCurrency(productInfo.paid)), stringSemiBold: CommonUtil.convertCurrency(productInfo.paid))
         //
         let statusStr = productInfo.status ? "Đã trả hàng" : "Chưa trả hàng"
-        lbStatus.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Trạng thái: %@", statusStr), stringSemiBold: statusStr)
+        let colorStatus = productInfo.status ? UIColor.dark : UIColor.mainColor
+        lbStatus.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Trạng thái: %@", statusStr), stringSemiBold: statusStr, stringSemiboldColor: colorStatus)
         
         let noteStr = productInfo.note!.count > 0 ? productInfo.note : "Không có"
         lbNote.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "Ghi chú: %@", noteStr ?? ""), stringSemiBold: noteStr ?? "")

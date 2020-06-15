@@ -113,6 +113,7 @@ class ListProductGridVC: UIViewController {
     extension ListProductGridVC {
         func columnHeaders() -> [String] {
                 return [
+                    "Tên SP",
                     "Số lượng",
                     "Giá SP",
                     "Tiền cọc",
@@ -137,7 +138,8 @@ class ListProductGridVC: UIViewController {
 //            let paidList = productList.sorted{ $0.installment < $1.installment }
             var arrayDataSet = [[Any]]()
             for productItem in productList {
-                let item = [productItem.quantity,
+                let item = [productItem.name ?? "",
+                            productItem.quantity,
                             CommonUtil.convertCurrency(productItem.price, currency: ""),
                             CommonUtil.convertCurrency(productItem.paid, currency: ""),
                             productItem.status ? "Đã trả hàng" : "Chưa trả hàng",

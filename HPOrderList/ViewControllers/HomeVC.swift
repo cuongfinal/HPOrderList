@@ -60,14 +60,14 @@ class HomeVC: BaseVC {
         //SearchVC
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Tìm khách hàng"
+        searchController.searchBar.placeholder = "Tìm khách hàng (Tên/SĐT)"
         searchController.searchBar.tintColor = .white
         searchController.searchBar.barTintColor = .white
         definesPresentationContext = true
         
         searchController.searchBar.searchTextField.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-            self.searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string:"Tìm khách hàng", attributes:  [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.75)])
+            self.searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string:"Tìm khách hàng (Tên/SĐT)", attributes:  [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.75)])
         }
         if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField,
             let glassIconView = textFieldInsideSearchBar.leftView as? UIImageView {

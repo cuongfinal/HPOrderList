@@ -49,6 +49,7 @@ class DataHandling {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [UserInfo]() }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<UserInfo>(entityName: "UserInfo")
+        
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)
             return tasks
@@ -139,6 +140,9 @@ extension DataHandling {
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<ProductInfo>(entityName: "ProductInfo")
         fetchRequest.predicate = NSPredicate(format: "ofUser == %@", userInfo)
+        // Sort Descriptor
+        let idDescriptor: NSSortDescriptor = NSSortDescriptor(key: "productId", ascending: false)
+        fetchRequest.sortDescriptors = [idDescriptor]
         
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)

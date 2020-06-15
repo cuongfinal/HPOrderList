@@ -24,7 +24,7 @@ extension NSMutableAttributedString {
         self.addAttribute(NSAttributedString.Key.link, value: link, range: range)
     }
     
-    func attributedHalfOfString(fullString: String, stringSemiBold: String) -> NSAttributedString {
+    func attributedHalfOfString(fullString: String, stringSemiBold: String, stringSemiboldColor: UIColor = .dark) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
                paragraphStyle.alignment = .left
                
@@ -34,7 +34,7 @@ extension NSMutableAttributedString {
             .kern: 0.0,
             .paragraphStyle: paragraphStyle
             ])
-        attributedString.setColor(color: .dark, forText: stringSemiBold)
+        attributedString.setColor(color: stringSemiboldColor, forText: stringSemiBold)
         attributedString.setFont(font: SFProText.semibold(size: 12.0), forText: stringSemiBold)
         return attributedString
     }
