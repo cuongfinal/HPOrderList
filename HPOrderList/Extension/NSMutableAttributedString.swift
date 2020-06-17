@@ -24,18 +24,18 @@ extension NSMutableAttributedString {
         self.addAttribute(NSAttributedString.Key.link, value: link, range: range)
     }
     
-    func attributedHalfOfString(fullString: String, stringSemiBold: String, stringSemiboldColor: UIColor = .dark) -> NSAttributedString {
+    func attributedHalfOfString(fullString: String, stringSemiBold: String, fullStringColor: UIColor = .dark,  stringSemiboldColor: UIColor = .dark, fullStringFont: UIFont = SFProText.regular(size: 12), stringSemiboldFont: UIFont = SFProText.semibold(size: 12)) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
                paragraphStyle.alignment = .left
                
         let attributedString = NSMutableAttributedString(string: fullString, attributes: [
-            .font: SFProText.regular(size: 12),
-            .foregroundColor: UIColor.dark,
+            .font: fullStringFont,
+            .foregroundColor: fullStringColor,
             .kern: 0.0,
             .paragraphStyle: paragraphStyle
             ])
         attributedString.setColor(color: stringSemiboldColor, forText: stringSemiBold)
-        attributedString.setFont(font: SFProText.semibold(size: 12.0), forText: stringSemiBold)
+        attributedString.setFont(font: stringSemiboldFont, forText: stringSemiBold)
         return attributedString
     }
 }

@@ -18,3 +18,7 @@
 "contact_title" = "Liên hệ";
 "guideline_title" = "Hướng dẫn sử dụng";
 "app_version_title" = "Phiên bản hiện tại: %@";
+
+"total_money" = "Tổng số tiền: %@";
+"total_paid_money" = "Tổng số tiền cọc: %@";
+"total_remaining_money" = "Tổng số tiền còn lại: %@";

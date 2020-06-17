@@ -89,7 +89,7 @@ class CommonUtil : NSObject {
            }
            if let navigationController = navigationController {
                navigationController.modalPresentationStyle = .overFullScreen
-               source?.navigationController?.present(navigationController, animated: false)
+               source?.navigationController?.present(navigationController, animated: true)
            }
     }
 

@@ -68,7 +68,6 @@ class EditProductVC: BaseVCCanBack {
         btnCreateProduct.isEnabled = ivPrice.value.count > 0
             && ivQuantity.value.count > 0
             && ivPrice.value.count > 0
-            && ivPaid.value.count > 0
     }
 }
 

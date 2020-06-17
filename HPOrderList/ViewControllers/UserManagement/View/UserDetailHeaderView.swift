@@ -8,8 +8,8 @@
 
 import UIKit
 
-var kTableHeaderHeight:CGFloat = CommonUtil.sizeBasedOnDeviceWidth(size: 270)
-var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 170)
+var kTableHeaderHeight:CGFloat = CommonUtil.sizeBasedOnDeviceWidth(size: 220)
+var kNavigationSize = CommonUtil.sizeBasedOnDeviceWidth(size: 150)
 protocol UserDetailHeaderViewDelegate {
     func openGridTable()
 }

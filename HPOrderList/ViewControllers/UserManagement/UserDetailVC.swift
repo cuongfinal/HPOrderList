@@ -18,6 +18,9 @@ class UserDetailVC: BaseVC {
     var userInfo: UserInfo?
     var dataSource = [ProductInfo]()
     var listTable = ListProductTableVC()
+    var totalMoney: Int64 = 0
+    var paidMoney: Int64 = 0
+    var remainingMoney: Int64 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,19 +46,41 @@ class UserDetailVC: BaseVC {
     }
     
     func calculateMomey(){
-        var total: Int64 = 0
-        var paid: Int64 = 0
-        var remaining: Int64 = 0
+        totalMoney = 0
+        paidMoney = 0
+        remainingMoney = 0
         for product in dataSource {
             if !product.status {
-                total += (product.price * Int64(product.quantity))
-                paid +=  product.paid
-                remaining += (product.price * Int64(product.quantity)) - product.paid
+                totalMoney += (product.price * Int64(product.quantity))
+                paidMoney +=  product.paid
+                remainingMoney += (product.price * Int64(product.quantity)) - product.paid
             }
         }
-        headerView.lbTotalMoney.text = String(format: "Tổng số tiền: %@", CommonUtil.convertCurrency(total))
-        headerView.lbTotalRemain.text = String(format: "Tổng số tiền còn lại: %@", CommonUtil.convertCurrency(remaining))
-        headerView.lbTotalPaid.text = String(format: "Tổng số tiền cọc: %@", CommonUtil.convertCurrency(paid)) 
+        
+        let totalMoneyStr = CommonUtil.convertCurrency(totalMoney)
+        let stringColor = UIColor.white
+        headerView.lbTotalMoney.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "total_money".localized(), totalMoneyStr),
+                                                                                                    stringSemiBold: totalMoneyStr,
+                                                                                                    fullStringColor: stringColor,
+                                                                                                    stringSemiboldColor: stringColor,
+                                                                                                    fullStringFont: SFProText.regular(size: 15),
+                                                                                                    stringSemiboldFont: SFProText.semibold(size: 15))
+        
+        let remainMoneyStr = CommonUtil.convertCurrency(remainingMoney)
+        headerView.lbTotalRemain.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "total_remaining_money".localized(), remainMoneyStr),
+                                                                                                     stringSemiBold: remainMoneyStr,
+                                                                                                     fullStringColor: stringColor,
+                                                                                                     stringSemiboldColor: stringColor,
+                                                                                                     fullStringFont: SFProText.regular(size: 15),
+                                                                                                     stringSemiboldFont: SFProText.semibold(size: 15))
+        
+        let paidMoneyStr = CommonUtil.convertCurrency(paidMoney)
+        headerView.lbTotalPaid.attributedText = NSMutableAttributedString().attributedHalfOfString(fullString: String(format: "total_paid_money".localized(), paidMoneyStr),
+                                                                                                   stringSemiBold: paidMoneyStr,
+                                                                                                   fullStringColor: stringColor,
+                                                                                                   stringSemiboldColor: stringColor,
+                                                                                                   fullStringFont: SFProText.regular(size: 15),
+                                                                                                   stringSemiboldFont: SFProText.semibold(size: 15))
     }
     
     func reloadData(){
@@ -113,7 +138,7 @@ class UserDetailVC: BaseVC {
 extension UserDetailVC : UserDetailHeaderViewDelegate {
     func openGridTable() {
         let gridView = CommonUtil.viewController(storyboard: "UserManage", storyboardID: "listProductGridVC") as! ListProductGridVC
-        gridView.configure(productInfo: dataSource)
+        gridView.configure(productInfo: dataSource, totalMoney: totalMoney, paidMoney: paidMoney, remainingMoney: remainingMoney)
         CommonUtil.present(gridView, from: self)
     }
 }
