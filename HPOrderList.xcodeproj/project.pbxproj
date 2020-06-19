@@ -65,6 +65,7 @@
 		D4A3492A248629D6004330E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A34929248629D6004330E3 /* Assets.xcassets */; };
 		D4A3492D248629D6004330E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A3492B248629D6004330E3 /* LaunchScreen.storyboard */; };
 		D4CBF12B249CC56B00FBFEE3 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CBF12A249CC56B00FBFEE3 /* AlertVC.swift */; };
+		D4CBF12D249CD59400FBFEE3 /* CSVWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CBF12C249CD59400FBFEE3 /* CSVWorking.swift */; };
 		D4DFF2D4248A3671009CA13E /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF2D3248A3671009CA13E /* MainTabbarController.swift */; };
 		D4DFF2D8248A36DD009CA13E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF2D7248A36DD009CA13E /* UIColor.swift */; };
 		D4DFF2DB248A377A009CA13E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF2DA248A377A009CA13E /* UIImage.swift */; };
@@ -169,6 +170,8 @@
 		D4A3492C248629D6004330E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4A3492E248629D6004330E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4CBF12A249CC56B00FBFEE3 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		D4CBF12C249CD59400FBFEE3 /* CSVWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVWorking.swift; sourceTree = "<group>"; };
+		D4CBF12E249CE49F00FBFEE3 /* HPOrderList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HPOrderList.entitlements; sourceTree = "<group>"; };
 		D4DFF2D3248A3671009CA13E /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		D4DFF2D7248A36DD009CA13E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D4DFF2DA248A377A009CA13E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -428,6 +431,7 @@
 		D4A3491C248629D4004330E3 /* HPOrderList */ = {
 			isa = PBXGroup;
 			children = (
+				D4CBF12E249CE49F00FBFEE3 /* HPOrderList.entitlements */,
 				5FD7DF602496578D00CEC079 /* Data */,
 				D4DFF30F248A3B0D009CA13E /* Utils */,
 				D4DFF2D9248A3734009CA13E /* Shared */,
@@ -532,6 +536,7 @@
 				D4DFF310248A3B1B009CA13E /* CommonUtil.swift */,
 				D4DFF312248A3B44009CA13E /* Constants.swift */,
 				5FD7DF712496581600CEC079 /* DataHandling.swift */,
+				D4CBF12C249CD59400FBFEE3 /* CSVWorking.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -760,6 +765,7 @@
 				5F9E21DC2497037F00E0C862 /* DataCellViewModel.swift in Sources */,
 				5F9E21E22497037F00E0C862 /* DataTableFixedColumnType.swift in Sources */,
 				5F96FAFC24962629009AA3D1 /* UserDetailHeaderView.swift in Sources */,
+				D4CBF12D249CD59400FBFEE3 /* CSVWorking.swift in Sources */,
 				D4DFF2DD248A3953009CA13E /* HomeVC.swift in Sources */,
 				5F9E21EC2497037F00E0C862 /* CollectionViewCellRepresentable.swift in Sources */,
 				5F9E21A824967BE500E0C862 /* CustomThumbView.swift in Sources */,
@@ -953,6 +959,7 @@
 			baseConfigurationReference = D00570F94CFDE25DD5D6811F /* Pods-HPOrderList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 48HJA497TD;
@@ -975,6 +982,7 @@
 			baseConfigurationReference = E6D78EA2BE475B6536B0AF8B /* Pods-HPOrderList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 48HJA497TD;

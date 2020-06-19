@@ -105,5 +105,17 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         cell.imgIcon.image = UIImage.init(named: data.1)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0{
+            switch indexPath.row {
+            case 0:
+                CSVWorking().exportDatabase {
+                    print("done")
+                }
+            default:
+                print("default")
+            }
+        }
+    }
 }
 

@@ -20,6 +20,26 @@ class AlertVC : UIAlertController {
     static let shared = AlertVC()
     weak var delegate: AlertVCDelegate?
     
+    func warningAlert(_ title: String?, message: String?, cancelTitle: String, completedClosure: CompletedClosure) -> UIAlertController {
+        let alertVC = UIAlertController.init(title: title,
+                                             message: message,
+                                             preferredStyle: .alert)
+        let titleFont = [NSAttributedString.Key.font: SFProText.semibold(size: 16)]
+        let messageFont = [NSAttributedString.Key.font: SFProText.regular(size: 13), .foregroundColor: UIColor.dark]
+        if let title = title, let message = message {
+            let titleAttrString = NSMutableAttributedString(string: title, attributes: titleFont)
+            let messageAttrString = NSMutableAttributedString(string: message, attributes: messageFont)
+            alertVC.setValue(titleAttrString, forKey: "attributedTitle")
+            alertVC.setValue(messageAttrString, forKey: "attributedMessage")
+        }
+        let action = UIAlertAction(title: cancelTitle, style: .default) { (action) in
+            completedClosure?()
+        }
+        alertVC.addAction(action)
+        alertVC.view.tintColor = UIColor.mainColor
+        return alertVC
+    }
+    
     func confirmAlert(_ title: String?, message: String?, cancelTitle: String,confirmTitle:String, completedClosure: CompletedClosure, confirmClosure: ConfirmClosure) -> UIAlertController {
         let alertVC = UIAlertController.init(title: title,
                                              message: message,
