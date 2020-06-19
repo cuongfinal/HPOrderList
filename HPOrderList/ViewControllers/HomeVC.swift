@@ -109,6 +109,13 @@ class HomeVC: BaseVC {
             tbUserlist.reloadData()
         }
     }
+    
+    func confirmDelete(userData: UserInfo){
+        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
+            DataHandling().deleteUser(userName: userData.username ?? "")
+            self.reloadData()
+        }))
+    }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
@@ -139,8 +146,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cellData = isFiltering ? filteredUsers[indexPath.row] : dataSource[indexPath.row]
 
         let askAction = UIContextualAction(style: .normal, title: nil) { action, view, complete in
-            DataHandling().deleteUser(userName: cellData.username ?? "")
-            self.reloadData()
+            self.confirmDelete(userData: cellData)
         }
         askAction.image = UIImage.init(named: "delete-icon")
         askAction.backgroundColor = UIColor.editBGColor

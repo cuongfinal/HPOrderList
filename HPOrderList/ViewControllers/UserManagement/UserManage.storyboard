@@ -811,7 +811,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLU-kh-ui8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đơn vị: VND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPq-7h-YTi">
                                         <rect key="frame" x="10" y="34.5" width="76" height="16"/>
@@ -886,11 +886,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-5H-3wu">
-                                <rect key="frame" x="0.0" y="65" width="414" height="697"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="653"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.91372549020000005" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mnK-zD-b9L" firstAttribute="bottom" secondItem="Thh-9C-gqz" secondAttribute="bottom" id="97w-XB-etv"/>
                             <constraint firstItem="Thh-9C-gqz" firstAttribute="top" secondItem="5VZ-5H-3wu" secondAttribute="bottom" id="NWJ-Ly-X6X"/>
@@ -900,7 +900,7 @@
                             <constraint firstItem="5VZ-5H-3wu" firstAttribute="centerX" secondItem="mnK-zD-b9L" secondAttribute="centerX" id="rsM-6Q-Tb3"/>
                             <constraint firstItem="5VZ-5H-3wu" firstAttribute="top" secondItem="VLU-kh-ui8" secondAttribute="bottom" id="ttt-Ow-wHg"/>
                             <constraint firstItem="Thh-9C-gqz" firstAttribute="width" secondItem="VLU-kh-ui8" secondAttribute="width" id="vGF-kX-04m"/>
-                            <constraint firstItem="VLU-kh-ui8" firstAttribute="top" secondItem="xQd-nM-N4n" secondAttribute="top" id="vVU-T2-fQG">
+                            <constraint firstItem="VLU-kh-ui8" firstAttribute="top" secondItem="mnK-zD-b9L" secondAttribute="top" id="vVU-T2-fQG">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -914,6 +914,7 @@
                         <outlet property="lbPaid" destination="qoF-dP-ZFC" id="j3a-Cr-Kk5"/>
                         <outlet property="lbRemainingMoney" destination="MMc-0b-V8f" id="uEM-it-drR"/>
                         <outlet property="lbTotalMoney" destination="XyT-jh-c35" id="mg5-BZ-IID"/>
+                        <outlet property="viewFooter" destination="Thh-9C-gqz" id="qD1-bh-pzS"/>
                         <outlet property="viewHeader" destination="VLU-kh-ui8" id="S1E-vk-j3m"/>
                         <outlet property="viewTable" destination="5VZ-5H-3wu" id="kCH-XL-nwo"/>
                     </connections>

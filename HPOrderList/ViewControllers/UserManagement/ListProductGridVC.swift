@@ -14,6 +14,7 @@ class ListProductGridVC: UIViewController {
     var dataTable: SwiftDataTable!
     var productList: [ProductInfo]!
     
+    @IBOutlet weak var viewFooter: UIView!
     @IBOutlet weak var lbRemainingMoney: UILabel!
     @IBOutlet weak var lbPaid: UILabel!
     @IBOutlet weak var lbTotalMoney: UILabel!
@@ -28,7 +29,6 @@ class ListProductGridVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //            view.rotate(angle: 90)
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
@@ -39,9 +39,9 @@ class ListProductGridVC: UIViewController {
         setupViews()
         setupConstraints()
         
-        lbTotalMoney.text = String(format: "total_money".localized(), CommonUtil.convertCurrency(totalMoney))
-        lbRemainingMoney.text = String(format: "total_remaining_money".localized(), CommonUtil.convertCurrency(remainingMoney))
-        lbPaid.text = String(format: "total_paid_money".localized(), CommonUtil.convertCurrency(paidMoney))
+        lbTotalMoney.text = String(format: "total_money".localized(), CommonUtil.convertCurrency(totalMoney, currency: ""))
+        lbRemainingMoney.text = String(format: "total_remaining_money".localized(), CommonUtil.convertCurrency(remainingMoney, currency: ""))
+        lbPaid.text = String(format: "total_paid_money".localized(), CommonUtil.convertCurrency(paidMoney, currency: ""))
     }
     
     @IBAction func closeTapped(_ sender: Any) {
@@ -64,7 +64,9 @@ class ListProductGridVC: UIViewController {
     func setupViews() {
         navigationController?.navigationBar.isTranslucent = false
         title = "Employee Balances"
-        view.backgroundColor = UIColor.dark.withAlphaComponent(0.7)
+        view.backgroundColor = UIColor.veryLightBlue
+        viewHeader.backgroundColor = UIColor.veryLightBlue
+        viewFooter.backgroundColor = UIColor.veryLightBlue
         automaticallyAdjustsScrollViewInsets = false
         viewTable.addSubview(dataTable)
     }
@@ -123,10 +125,11 @@ extension ListProductGridVC: SwiftDataTableDelegate {
 extension ListProductGridVC {
     func columnHeaders() -> [String] {
         return [
-            "Tên SP",
-            "Số lượng",
-            "Giá SP",
-            "Tiền cọc",
+            "Tên Sản Phẩm",
+            "SL",
+            "Giá Sản Phẩm",
+            "Tiền cọc ",
+            "Thành tiền",
             "Trạng thái"
         ]
     }
@@ -151,6 +154,7 @@ extension ListProductGridVC {
                         productItem.quantity,
                         CommonUtil.convertCurrency(productItem.price, currency: ""),
                         CommonUtil.convertCurrency(productItem.paid, currency: ""),
+                        CommonUtil.convertCurrency((productItem.price*Int64(productItem.quantity))-productItem.paid, currency: ""),
                         productItem.status ? "Đã trả hàng" : "Chưa trả hàng"] as [Any]
             arrayDataSet.append(item)
         }

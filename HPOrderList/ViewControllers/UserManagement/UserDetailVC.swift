@@ -133,6 +133,20 @@ class UserDetailVC: BaseVC {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         CommonUtil.popViewController(for: self)
     }
+    
+    func confirmDeleteProduct(productInfo: ProductInfo){
+        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
+            DataHandling().deleteProduct(productId: productInfo.productId)
+            self.reloadData()
+        }))
+    }
+    
+    func confirmDeleteAll(){
+        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
+            DataHandling().deleteAllProduct(userInfo: self.userInfo ?? UserInfo())
+            self.reloadData()
+        }))
+    }
 }
 
 extension UserDetailVC : UserDetailHeaderViewDelegate {
@@ -146,9 +160,9 @@ extension UserDetailVC: ListProductTableVCDetagate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         headerView.updateHeaderView(scrollView: scrollView)
     }
-    
-    func reloadViewData() {
-        self.reloadData()
+
+    func confirmDelete(productInfo: ProductInfo) {
+        confirmDeleteProduct(productInfo: productInfo)
     }
 }
 
@@ -169,7 +183,6 @@ extension UserDetailVC: SNavigationViewDelegate{
     }
     
     func rightBarButtonTapped(){
-        DataHandling().deleteAllProduct(userInfo: userInfo ?? UserInfo())
-        self.reloadData()
+        confirmDeleteAll()
     }
 }

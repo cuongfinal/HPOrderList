@@ -20,7 +20,7 @@ class CommonUtil : NSObject {
         return storyboard.instantiateViewController(withIdentifier: storyboardID)
     }
     
-    static func convertCurrency(_ price: Int64, currency:String = "VND") -> String{
+    static func convertCurrency(_ price: Int64, currency:String = "") -> String{
         let numberFormatter = NumberFormatter()
         numberFormatter.groupingSeparator = ","
         numberFormatter.groupingSize = 3

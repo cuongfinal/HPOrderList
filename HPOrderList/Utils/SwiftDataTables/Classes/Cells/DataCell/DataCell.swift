@@ -44,8 +44,8 @@ class DataCell: UICollectionViewCell {
     func configure(_ viewModel: DataCellViewModel, index: Int){
         self.dataLabel.text = viewModel.data.stringRepresentation
         self.dataLabel.textColor = .dark
-        self.dataLabel.font = SFProText.regular(size: 13)
-        if (index == 4) {
+        self.dataLabel.font = SFProText.regular(size: 10)
+        if (index == 5) {
             self.dataLabel.textColor = viewModel.data.stringRepresentation.contains("Chưa trả hàng") ? UIColor.mainColor : UIColor.dark
         }
     }

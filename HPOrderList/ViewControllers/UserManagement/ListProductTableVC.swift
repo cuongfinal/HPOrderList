@@ -10,7 +10,7 @@ import UIKit
 
 protocol ListProductTableVCDetagate {
     func scrollViewDidScroll(_ scrollView: UIScrollView)
-    func reloadViewData()
+    func confirmDelete(productInfo: ProductInfo)
 }
 
 class ListProductTableVC: UITableViewController {
@@ -62,9 +62,8 @@ class ListProductTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let cellData = dataSource[indexPath.row]
         let askAction = UIContextualAction(style: .normal, title: nil) { action, view, complete in
-            DataHandling().deleteProduct(productId: cellData.productId)
             if let delegate = self.delegate {
-                delegate.reloadViewData()
+                delegate.confirmDelete(productInfo: cellData)
             }
         }
         askAction.image = UIImage.init(named: "delete-icon")

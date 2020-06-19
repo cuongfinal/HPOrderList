@@ -72,7 +72,7 @@ class DataHeaderFooter: UICollectionReusableView {
     func configure(viewModel: DataHeaderFooterViewModel, index: Int, colors: [UIColor]) {
         self.titleLabel.text = viewModel.data
         self.titleLabel.textColor = .white
-        self.titleLabel.font = SFProText.medium(size: 12)
+        self.titleLabel.font = SFProText.medium(size: 9)
 //        self.sortingImageView.image = viewModel.imageForSortingElement
 //        self.sortingImageView.tintColor = viewModel.tintColorForSortingElement
         self.backgroundColor = colors[index % colors.count]

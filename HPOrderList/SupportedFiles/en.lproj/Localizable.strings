@@ -22,3 +22,8 @@
 "total_money" = "Tổng số tiền: %@";
 "total_paid_money" = "Tổng số tiền cọc: %@";
 "total_remaining_money" = "Tổng số tiền còn lại: %@";
+
+"alert_confirm_title" = "Xác nhận";
+"alert_delete_content" = "Bạn chắc chắn muốn xoá dữ liệu này?";
+"alert_cancel_btn" = "Đóng";
+"alert_ok_btn" = "Đồng ý";

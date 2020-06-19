@@ -64,6 +64,7 @@
 		D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4A34926248629D4004330E3 /* HPOrderList.xcdatamodeld */; };
 		D4A3492A248629D6004330E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A34929248629D6004330E3 /* Assets.xcassets */; };
 		D4A3492D248629D6004330E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A3492B248629D6004330E3 /* LaunchScreen.storyboard */; };
+		D4CBF12B249CC56B00FBFEE3 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CBF12A249CC56B00FBFEE3 /* AlertVC.swift */; };
 		D4DFF2D4248A3671009CA13E /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF2D3248A3671009CA13E /* MainTabbarController.swift */; };
 		D4DFF2D8248A36DD009CA13E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF2D7248A36DD009CA13E /* UIColor.swift */; };
 		D4DFF2DB248A377A009CA13E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DFF2DA248A377A009CA13E /* UIImage.swift */; };
@@ -167,6 +168,7 @@
 		D4A34929248629D6004330E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4A3492C248629D6004330E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4A3492E248629D6004330E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4CBF12A249CC56B00FBFEE3 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		D4DFF2D3248A3671009CA13E /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		D4DFF2D7248A36DD009CA13E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D4DFF2DA248A377A009CA13E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				D4DFF2F4248A3A2E009CA13E /* BaseVC.swift */,
 				D4DFF2F5248A3A2E009CA13E /* BaseXibView.swift */,
 				D4DFF2F2248A3A2E009CA13E /* RoundedComponent.swift */,
+				D4CBF12A249CC56B00FBFEE3 /* AlertVC.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				D4DFF2EF248A39F0009CA13E /* Array.swift in Sources */,
 				5F9E21E42497037F00E0C862 /* DataTableConfiguration.swift in Sources */,
 				D4DFF323248A4DC6009CA13E /* SettingCell.swift in Sources */,
+				D4CBF12B249CC56B00FBFEE3 /* AlertVC.swift in Sources */,
 				5F9E21D82497037F00E0C862 /* PaginationHeaderViewModel.swift in Sources */,
 				5F9E21AF24967E4600E0C862 /* UserInfo+CoreDataClass.swift in Sources */,
 				D4DFF2E8248A39F0009CA13E /* String.swift in Sources */,
