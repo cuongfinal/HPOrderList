@@ -23,7 +23,16 @@
 "total_paid_money" = "Tổng số tiền cọc: %@";
 "total_remaining_money" = "Tổng số tiền còn lại: %@";
 
-"alert_confirm_title" = "Xác nhận";
-"alert_delete_content" = "Bạn chắc chắn muốn xoá dữ liệu này?";
-"alert_cancel_btn" = "Đóng";
-"alert_ok_btn" = "Đồng ý";
+//
+"alert_confirm_title" = "Hỏi lại nè 🤨";
+"alert_delete_content" = "Chắn chắn xoá chưa?\nChưa sao lưu là không khôi phục được đâu nha!!";
+"alert_cancel_btn" = "Nghĩ lại đã";
+"alert_ok_btn" = "Ok lah";
+
+"alert_success_title" = "Yayyyy !! 🥳";
+"alert_fail_title" = "Lỗi rồi 🙃";
+
+"alert_backup_files_content" = "Sao lưu dữ liệu thành công, mở ứng dụng Files và check trong mục On My iPhone nha bạn ơi 🥰";
+"alert_email_title" = "[HPOrderList] Backup data - %@";
+"alert_email_content" = "Vui lòng kiểm tra nội dung file đính kèm, email đến %@ nếu bạn cần support gì nha ☺️☺️☺️";
+"alert_email_sent_content" = "Email đã gửi thành công 😍";

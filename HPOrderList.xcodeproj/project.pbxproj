@@ -59,6 +59,7 @@
 		5FD7DF722496581600CEC079 /* DataHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF712496581600CEC079 /* DataHandling.swift */; };
 		5FD7DF742496596C00CEC079 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF732496596C00CEC079 /* UserInfoModel.swift */; };
 		5FD7DF77249659B300CEC079 /* ProductInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF76249659B300CEC079 /* ProductInfoModel.swift */; };
+		D48102CE24A0DCEC006FF472 /* EmailHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48102CD24A0DCEC006FF472 /* EmailHandling.swift */; };
 		D4A3491E248629D4004330E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3491D248629D4004330E3 /* AppDelegate.swift */; };
 		D4A34925248629D4004330E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A34923248629D4004330E3 /* Main.storyboard */; };
 		D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4A34926248629D4004330E3 /* HPOrderList.xcdatamodeld */; };
@@ -162,6 +163,7 @@
 		5FD7DF732496596C00CEC079 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		5FD7DF76249659B300CEC079 /* ProductInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoModel.swift; sourceTree = "<group>"; };
 		D00570F94CFDE25DD5D6811F /* Pods-HPOrderList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPOrderList.debug.xcconfig"; path = "Target Support Files/Pods-HPOrderList/Pods-HPOrderList.debug.xcconfig"; sourceTree = "<group>"; };
+		D48102CD24A0DCEC006FF472 /* EmailHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandling.swift; sourceTree = "<group>"; };
 		D4A3491A248629D4004330E3 /* HPOrderList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HPOrderList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A3491D248629D4004330E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A34924248629D4004330E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 				D4DFF312248A3B44009CA13E /* Constants.swift */,
 				5FD7DF712496581600CEC079 /* DataHandling.swift */,
 				D4CBF12C249CD59400FBFEE3 /* CSVWorking.swift */,
+				D48102CD24A0DCEC006FF472 /* EmailHandling.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				D4DFF2D4248A3671009CA13E /* MainTabbarController.swift in Sources */,
 				5FD7DF77249659B300CEC079 /* ProductInfoModel.swift in Sources */,
 				D4A3491E248629D4004330E3 /* AppDelegate.swift in Sources */,
+				D48102CE24A0DCEC006FF472 /* EmailHandling.swift in Sources */,
 				5F9E21E02497037F00E0C862 /* DataHeaderFooter.swift in Sources */,
 				5F9E21ED2497037F00E0C862 /* DataCellRowRepresentable.swift in Sources */,
 				D4DFF2F7248A3A2E009CA13E /* RoundedComponent.swift in Sources */,
@@ -962,6 +966,7 @@
 				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -969,7 +974,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cuongfinal.orderlist.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cuongfinal.orderlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = OrderListDev;
 				SWIFT_VERSION = 5.0;
@@ -985,6 +990,7 @@
 				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -992,7 +998,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cuongfinal.orderlist.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cuongfinal.orderlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = OrderListDev;
 				SWIFT_VERSION = 5.0;

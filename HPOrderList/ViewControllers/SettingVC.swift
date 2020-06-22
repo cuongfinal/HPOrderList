@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MessageUI
+import SwiftDate
 
 class SettingVC: BaseVC {
     
@@ -34,6 +36,68 @@ class SettingVC: BaseVC {
         super.viewDidLoad()
 
         tbSettings.separatorColor = UIColor.borderColor
+    }
+    
+    func handleSelectBackup(){
+        let alert = UIAlertController(title: "Lựa chọn", message: "Lựa chọn phương thức sao lưu phù hợp với bạn", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Lưu vào Files App", style: .default , handler:{ (UIAlertAction)in
+            alert.dismiss {
+                self.actionFilesApp()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gửi Email", style: .default , handler:{ (UIAlertAction)in
+            alert.dismiss {
+                self.actionSendEmail()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Đóng", style: .cancel , handler:{ (UIAlertAction)in
+            alert.dismiss()
+        }))
+        
+        self.present(alert)
+    }
+    
+    func actionFilesApp(){
+        CSVWorking().exportDatabase { result in
+            if result.success {
+                self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_backup_files_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+            }else{
+                self.handleExportError(result: result)
+            }
+        }
+    }
+    
+    func actionSendEmail(){
+        CSVWorking().exportDatabase { result in
+            if result.success {
+                let mailComposer = MFMailComposeViewController()
+                mailComposer.mailComposeDelegate = self
+                let currentDate = DateInRegion.init(Date(), region: .current).toFormat("dd/MM/yyyy hh:mm")
+                //Set the subject and message of the email
+                mailComposer.setSubject(String.init(format: "alert_email_title".localized(), currentDate))
+                mailComposer.setMessageBody(String.init(format: "alert_email_content".localized(), supportEmail), isHTML: false)
+                
+                let filePath = DocumentsDirectory.localDocumentsURL.appendingPathComponent(exportFileName)
+                if FileManager.default.fileExists(atPath: filePath.path){
+                    do {
+                        let fileData = try Data(contentsOf: filePath)
+                        mailComposer.addAttachmentData(fileData as Data, mimeType: "text/csv", fileName: "UsersList")
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                self.present(mailComposer, animated: true, completion: nil)
+            }else{
+                self.handleExportError(result: result)
+            }
+        }
+    }
+    
+    func handleExportError(result: ClosureState){
+        self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
     }
 }
 
@@ -105,13 +169,12 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         cell.imgIcon.image = UIImage.init(named: data.1)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
             switch indexPath.row {
             case 0:
-                CSVWorking().exportDatabase {
-                    print("done")
-                }
+                handleSelectBackup()
             default:
                 print("default")
             }
@@ -119,3 +182,14 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension SettingVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss {
+            if result == .sent {
+                self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_email_sent_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+            }else if result == .failed{
+                self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: error?.localizedDescription, cancelTitle: "Đóng", completedClosure: nil))
+            }
+        }
+    }
+}

@@ -12,15 +12,15 @@ import UIKit
 struct DocumentsDirectory {
     static let localDocumentsURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask).last!
     static let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
-    
 }
 
 class CSVWorking{
-    func exportDatabase(completedClosure: CompletedClosure) {
+    
+    func exportDatabase(stateClosure: StateClosure) {
         let exportString = createExportString()
-        saveAndExport(exportString: exportString, completedClosure: {
-            completedClosure?()
-        })
+        saveAndExport(exportString: exportString) { closureState in
+            stateClosure?(closureState)
+        }
     }
     
     func createExportString() -> String {
@@ -37,25 +37,17 @@ class CSVWorking{
         return export
     }
     
-    func saveAndExport(exportString: String, completedClosure: CompletedClosure) {
-        //        let exportFilePath = NSTemporaryDirectory() + "User List.csv"
-        let exportFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("UserList.csv")
-        //        FileManager.default.createFile(atPath: exportFileURL.path, contents: Data(), attributes: nil)
-        //var fileHandleError: NSError? = nil
-        var fileHandle: FileHandle? = nil
-        let data = Data(exportString.utf8)
-        do {
-            try data.write(to: exportFileURL, options: .atomic)
-        } catch {
-            print("Error with fileHandle")
-        }
+    func saveAndExport(exportString: String, stateClosure: StateClosure) {
+        let exportFileURL = DocumentsDirectory.localDocumentsURL.appendingPathComponent(exportFileName)
+        FileManager.default.createFile(atPath: exportFileURL.path, contents: Data(), attributes: nil)
         
+        var fileHandle: FileHandle? = nil
         do {
             if FileManager.default.fileExists(atPath: exportFileURL.path){
                 fileHandle = try FileHandle(forWritingTo: exportFileURL as URL)
             }
         } catch {
-            print("Error with fileHandle")
+            stateClosure?(ClosureState(success: false, message: error.localizedDescription))
         }
         
         if fileHandle != nil {
@@ -63,44 +55,101 @@ class CSVWorking{
             let csvData = exportString.data(using: String.Encoding.utf8, allowLossyConversion: false)
             fileHandle!.write(csvData!)
             fileHandle!.closeFile()
-            moveFileToCloud()
-            completedClosure?()
+            //Copy to icloud
+            if isCloudEnabled() {
+                iCloudUpload { closureState in
+                    stateClosure?(closureState)
+                }
+            }
+            stateClosure?(ClosureState(success: true, message: ""))
         }
     }
-    
+}
+
+extension CSVWorking {
     func isCloudEnabled() -> Bool {
         if DocumentsDirectory.iCloudDocumentsURL != nil { return true }
         else { return false }
     }
     
-    func deleteFilesInDirectory(url: URL?) {
-        let fileManager = FileManager.default
-        let enumerator = fileManager.enumerator(atPath: url?.path ?? "")
-        while let file = enumerator?.nextObject() as? String {
-            do {
-                try fileManager.removeItem(at: url!.appendingPathComponent(file))
-                print("Files deleted")
-            } catch let error as NSError {
-                print("Failed deleting files : \(error)")
-            }
-        }
-    }
-    
-    func moveFileToCloud() {
-        if isCloudEnabled() {
-            deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) // Clear destination
-            let fileManager = FileManager.default
-            let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL.path)
-            while let file = enumerator?.nextObject() as? String {
+    func iCloudUpload(stateClosure: StateClosure){
+        //Create Directory
+        if let iCloudDocumentsURL = DocumentsDirectory.iCloudDocumentsURL {
+            if (!FileManager.default.fileExists(atPath: iCloudDocumentsURL.path, isDirectory: nil)) {
                 do {
-                    try fileManager.setUbiquitous(true,
-                                                  itemAt: DocumentsDirectory.localDocumentsURL.appendingPathComponent(file),
-                                                  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file))
-                    print("Moved to iCloud")
-                } catch let error as NSError {
-                    print("Failed to move file to Cloud : \(error)")
+                    try FileManager.default.createDirectory(at: iCloudDocumentsURL, withIntermediateDirectories: true, attributes: nil)
+                }
+                catch {
+                    stateClosure?(ClosureState(success: false, message: error.localizedDescription))
                 }
             }
         }
+        
+        //iCloud Upload
+        guard let iCloudDocumentsURL = DocumentsDirectory.iCloudDocumentsURL?.appendingPathComponent("Subdirectory") else {
+            stateClosure?(ClosureState(success: false, message: "No directory at iCloud drive"))
+            return
+        }
+        
+        var isDir:ObjCBool = false
+        if FileManager.default.fileExists(atPath: iCloudDocumentsURL.path, isDirectory: &isDir) {
+            do {
+                try FileManager.default.removeItem(at: iCloudDocumentsURL)
+            }
+            catch {
+                stateClosure?(ClosureState(success: false, message: error.localizedDescription))
+            }
+        }
+        
+        do {
+            try FileManager.default.copyItem(at:  DocumentsDirectory.localDocumentsURL, to: iCloudDocumentsURL)
+        }
+        catch {
+            stateClosure?(ClosureState(success: false, message: error.localizedDescription))
+        }
+        stateClosure?(ClosureState(success: true, message: ""))
     }
 }
+
+
+
+
+//    func deleteFilesInDirectory(url: URL?) {
+//        let fileManager = FileManager.default
+//        let enumerator = fileManager.enumerator(atPath: url?.path ?? "")
+//        while let file = enumerator?.nextObject() as? String {
+//            do {
+//                try fileManager.removeItem(at: url!.appendingPathComponent(file))
+//                print("Files deleted")
+//            } catch let error as NSError {
+//                print("Failed deleting files : \(error)")
+//            }
+//        }
+//    }
+//
+//    func moveFileToCloud() {
+//        if isCloudEnabled() {
+//            deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) // Clear destination
+//            do {
+//                try FileManager.default.copyItem(at: DocumentsDirectory.localDocumentsURL, to: DocumentsDirectory.iCloudDocumentsURL!)
+//            } catch (let writeError)
+//            {
+//                print("Error creating a file \(writeError)")
+//            }
+//
+//
+//
+////            let fileManager = FileManager.default
+////            let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL.path)
+////            while let file = enumerator?.nextObject() as? String {
+////                do {
+////                    try fileManager.setUbiquitous(true,
+////                                                  itemAt: DocumentsDirectory.localDocumentsURL.appendingPathComponent(file),
+////                                                  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file))
+////                    print("Moved to iCloud")
+////                } catch let error as NSError {
+////                    print("Failed to move file to Cloud : \(error)")
+////                }
+////            }
+//        }
+//    }

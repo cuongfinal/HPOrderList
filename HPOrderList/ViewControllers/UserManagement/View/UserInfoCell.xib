@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,25 +31,25 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên K/H nèee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jZ-6i-YZn">
-                        <rect key="frame" x="75" y="12" width="91.5" height="17"/>
+                        <rect key="frame" x="75" y="12" width="285" height="17"/>
                         <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="14"/>
                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SĐT: 012345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1b-8Z-END">
-                        <rect key="frame" x="75" y="37" width="95.5" height="14"/>
+                        <rect key="frame" x="75" y="37" width="285" height="14"/>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa Chỉ: Hong pít :|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXq-f1-Ji2">
-                        <rect key="frame" x="75" y="59" width="107" height="14"/>
+                        <rect key="frame" x="75" y="59" width="285" height="14"/>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin khác: Không có" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFv-9c-MZC">
-                        <rect key="frame" x="75" y="81" width="145" height="14"/>
+                        <rect key="frame" x="75" y="81" width="285" height="14"/>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -62,15 +62,19 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
+                    <constraint firstItem="AXq-f1-Ji2" firstAttribute="trailing" secondItem="2jZ-6i-YZn" secondAttribute="trailing" id="43c-x2-eLQ"/>
                     <constraint firstAttribute="bottom" secondItem="bFv-9c-MZC" secondAttribute="bottom" constant="12" id="4It-n2-GzX"/>
                     <constraint firstItem="bFv-9c-MZC" firstAttribute="leading" secondItem="AXq-f1-Ji2" secondAttribute="leading" id="6GT-09-vhh"/>
+                    <constraint firstItem="n1b-8Z-END" firstAttribute="trailing" secondItem="2jZ-6i-YZn" secondAttribute="trailing" id="Awp-sY-T8P"/>
                     <constraint firstItem="tWm-nt-xGZ" firstAttribute="width" secondItem="HxN-CT-f9Z" secondAttribute="width" multiplier="0.133333" id="BuT-sc-b5P"/>
                     <constraint firstItem="AXq-f1-Ji2" firstAttribute="top" secondItem="n1b-8Z-END" secondAttribute="bottom" constant="8" id="G7H-nx-PWT">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
+                    <constraint firstItem="bFv-9c-MZC" firstAttribute="trailing" secondItem="2jZ-6i-YZn" secondAttribute="trailing" id="QtB-Yn-FEn"/>
                     <constraint firstItem="tWm-nt-xGZ" firstAttribute="centerY" secondItem="n1b-8Z-END" secondAttribute="centerY" id="Wy6-HU-JFi"/>
+                    <constraint firstAttribute="trailing" secondItem="2jZ-6i-YZn" secondAttribute="trailing" constant="15" id="dvE-cj-L0E"/>
                     <constraint firstItem="AXq-f1-Ji2" firstAttribute="leading" secondItem="n1b-8Z-END" secondAttribute="leading" id="fHX-Yt-cPu"/>
                     <constraint firstItem="n1b-8Z-END" firstAttribute="top" secondItem="2jZ-6i-YZn" secondAttribute="bottom" constant="8" id="mH4-F4-bH3">
                         <userDefinedRuntimeAttributes>

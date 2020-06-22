@@ -10,3 +10,5 @@ import UIKit
 
 var MAIN_DESIGN_WIDTH:CGFloat = 375
 var MAIN_DESIGN_HEIGHT:CGFloat = 667
+let exportFileName = "UsersList.csv"
+let supportEmail = "cuongfinal@gmail.com"

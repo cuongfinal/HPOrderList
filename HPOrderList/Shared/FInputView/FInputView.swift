@@ -223,6 +223,13 @@ extension FInputView : UITextFieldDelegate, BaseTextFieldDelegate {
         if string == "" {
             return true
         }
+        
+        let format = "[A-Z0-9a-z]{1,}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", format)
+        if !predicate.evaluate(with: string){
+            return false
+        }
+        
         //Show title = placeholder when start input sth
         hasTitle = string.count > 0  && !string.contains { $0.isNewline }
         title = placeHolder
