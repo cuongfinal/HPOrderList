@@ -171,7 +171,7 @@ extension CSVWorking {
         }
         
         //iCloud Upload
-        guard let iCloudDocumentsURL = DocumentsDirectory.iCloudDocumentsURL?.appendingPathComponent("Subdirectory") else {
+        guard let iCloudDocumentsURL = DocumentsDirectory.iCloudDocumentsURL else {
             stateClosure?(ClosureState(success: false, message: "No directory at iCloud drive"))
             return
         }
@@ -186,7 +186,7 @@ extension CSVWorking {
                 return
             }
         }
-        
+
         do {
             try FileManager.default.copyItem(at:  DocumentsDirectory.localDocumentsURL, to: iCloudDocumentsURL)
         }

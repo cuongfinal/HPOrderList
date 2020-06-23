@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27574C6ACF84034A5DDA251A /* Pods_HPOrderList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD00F23183E1A8FFE55026EE /* Pods_HPOrderList.framework */; };
+		5F62433524A23F250012B4AB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F62433424A23F250012B4AB /* CloudKit.framework */; };
 		5F96FAF524962459009AA3D1 /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF424962459009AA3D1 /* UserDetailVC.swift */; };
 		5F96FAF724962489009AA3D1 /* ListProductTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */; };
 		5F96FAF9249624BB009AA3D1 /* ListProductGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F62433424A23F250012B4AB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5F96FAF424962459009AA3D1 /* UserDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
 		5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductTableVC.swift; sourceTree = "<group>"; };
 		5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductGridVC.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27574C6ACF84034A5DDA251A /* Pods_HPOrderList.framework in Frameworks */,
+				5F62433524A23F250012B4AB /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +410,7 @@
 		623E0C87CD369BFBF8F6AA47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F62433424A23F250012B4AB /* CloudKit.framework */,
 				DD00F23183E1A8FFE55026EE /* Pods_HPOrderList.framework */,
 			);
 			name = Frameworks;
@@ -964,9 +968,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Le Quang Tuan Cuong (48HJA497TD)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -974,9 +978,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cuongfinal.orderlist;
+				PRODUCT_BUNDLE_IDENTIFIER = cuongfinal.hp.orderlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = OrderListDev;
+				PROVISIONING_PROFILE_SPECIFIER = "HPOrderList-Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -988,9 +992,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Le Quang Tuan Cuong (48HJA497TD)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -998,9 +1002,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cuongfinal.orderlist;
+				PRODUCT_BUNDLE_IDENTIFIER = cuongfinal.hp.orderlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = OrderListDev;
+				PROVISIONING_PROFILE_SPECIFIER = "HPOrderList-Adhoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
