@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27574C6ACF84034A5DDA251A /* Pods_HPOrderList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD00F23183E1A8FFE55026EE /* Pods_HPOrderList.framework */; };
 		5F62433524A23F250012B4AB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F62433424A23F250012B4AB /* CloudKit.framework */; };
+		5F62433724A24B2F0012B4AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F62433624A24B2F0012B4AB /* GoogleService-Info.plist */; };
 		5F96FAF524962459009AA3D1 /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF424962459009AA3D1 /* UserDetailVC.swift */; };
 		5F96FAF724962489009AA3D1 /* ListProductTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */; };
 		5F96FAF9249624BB009AA3D1 /* ListProductGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */; };
@@ -113,6 +114,7 @@
 
 /* Begin PBXFileReference section */
 		5F62433424A23F250012B4AB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		5F62433624A24B2F0012B4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F96FAF424962459009AA3D1 /* UserDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
 		5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductTableVC.swift; sourceTree = "<group>"; };
 		5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductGridVC.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		D4DFF2D5248A367E009CA13E /* SupportedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5F62433624A24B2F0012B4AB /* GoogleService-Info.plist */,
 				D4DFF2FD248A3AB2009CA13E /* Fonts */,
 				D4A34929248629D6004330E3 /* Assets.xcassets */,
 				D4A34926248629D4004330E3 /* HPOrderList.xcdatamodeld */,
@@ -682,6 +685,7 @@
 				5F9E21A624967BE500E0C862 /* SSwitchView.xib in Resources */,
 				5F9E21D72497037F00E0C862 /* SwiftDataTables.bundle in Resources */,
 				D4DFF30A248A3AB2009CA13E /* SF-Pro-Text-Light.otf in Resources */,
+				5F62433724A24B2F0012B4AB /* GoogleService-Info.plist in Resources */,
 				5F96FB05249626FB009AA3D1 /* SNavigationView.xib in Resources */,
 				D4A34925248629D4004330E3 /* Main.storyboard in Resources */,
 			);
