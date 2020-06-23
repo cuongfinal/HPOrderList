@@ -25,10 +25,11 @@ class SettingCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(type: SettingCellType){
+    func configure(type: SettingCellType, switcherState: Bool = false){
         switcherView.isHidden = true
         imgArrow.isHidden = false
         if type == .switcher {
+            switcherView.isOn = switcherState
             switcherView.isHidden = false
             imgArrow.isHidden = true
         }

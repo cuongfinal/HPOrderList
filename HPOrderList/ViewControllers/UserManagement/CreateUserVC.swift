@@ -26,8 +26,13 @@ class CreateUserVC: BaseVCCanBack {
     
     @IBAction func createBtnTapped(_ sender: Any) {
         let userModel = UserInfoModel(username: ivName.value, phoneNumber: ivPhone.value, address: ivAddress.value, others: ivOthers.value)
-        DataHandling().addUser(userModel: userModel)
-        goBack()
+        DataHandling().addUser(userModel: userModel) { result in
+            if !result.success {
+                self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+            }else{
+                self.goBack()
+            }
+        }
     }
     
     private func reloadBtnSubmit(){

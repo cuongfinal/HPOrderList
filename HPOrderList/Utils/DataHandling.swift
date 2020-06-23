@@ -10,8 +10,18 @@ import Foundation
 import UIKit
 import CoreData
 
+typealias CoreDataClosure = ((ActionCoreDataState)->())?
+
+struct ActionCoreDataState {
+    var success = true
+    var numberSuccess = 0
+    var numberFail = 0
+    var message = ""
+}
+
+
 class DataHandling {
-    func addUser(userModel: UserInfoModel){
+    func addUser(userModel: UserInfoModel, coreDataClosure: CoreDataClosure){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let checkUser = fetchSingleUser(userName: userModel.username)
@@ -24,9 +34,40 @@ class DataHandling {
         
             do {
                 try managedObjectContext.save()
+                coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
             } catch let error as NSError {
-                print(error)
+                coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
             }
+        }else{
+            coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: "error_dupplicate_user".localized()))
+        }
+    }
+    
+    func addMultipleUser(usersModel: [UserInfoModel], coreDataClosure: CoreDataClosure){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedObjectContext = appDelegate.persistentContainer.viewContext
+        var numberSuccess = 0
+        var numberFailture = 0
+        
+        for userModel in usersModel {
+            let checkUser = fetchSingleUser(userName: userModel.username)
+            if checkUser == nil {
+                numberSuccess += 1
+                let userObj = UserInfo(context: managedObjectContext)
+                userObj.phoneNumber = userModel.phoneNumber
+                userObj.address = userModel.address
+                userObj.username = userModel.username
+                userObj.others = userModel.others
+            }else{
+                numberFailture += 1
+            }
+        }
+        
+        do {
+            try managedObjectContext.save()
+             coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: numberSuccess, numberFail: numberFailture, message: ""))
+        } catch let error as NSError {
+             coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
         }
     }
     
@@ -34,10 +75,10 @@ class DataHandling {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<UserInfo>(entityName: "UserInfo")
-        
+        fetchRequest.predicate = NSPredicate(format: "username == %@", userName)
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)
-            return tasks.filter { $0.username == userName}.first
+            return tasks.count > 0 ? tasks.first : nil
         }
         catch let error as NSError {
             print(error)
@@ -49,6 +90,8 @@ class DataHandling {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [UserInfo]() }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<UserInfo>(entityName: "UserInfo")
+        let idDescriptor: NSSortDescriptor = NSSortDescriptor(key: "username", ascending: true)
+        fetchRequest.sortDescriptors = [idDescriptor]
         
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)
@@ -60,7 +103,7 @@ class DataHandling {
         }
     }
     
-    func deleteUser(userName: String) {
+    func deleteUser(userName: String, coreDataClosure: CoreDataClosure) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let userData = fetchSingleUser(userName: userName)
@@ -68,13 +111,14 @@ class DataHandling {
             managedObjectContext.delete(userData)
             do {
                 try managedObjectContext.save()
+                coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
             } catch let error as NSError {
-                print(error)
+                coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
             }
         }
     }
     
-    func updateUserInfo(userModel: UserInfoModel){
+    func updateUserInfo(userModel: UserInfoModel, coreDataClosure: CoreDataClosure){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let userData = fetchSingleUser(userName: userModel.username)
@@ -85,15 +129,16 @@ class DataHandling {
 
             do {
                 try managedObjectContext.save()
+                 coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
             } catch let error as NSError {
-                print(error)
+                 coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
             }
         }
     }
 }
 
 extension DataHandling {
-    func addProduct(productModel: ProductInfoModel){
+    func addProduct(productModel: ProductInfoModel, coreDataClosure: CoreDataClosure){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         
@@ -113,10 +158,12 @@ extension DataHandling {
         productObj.note = productModel.note
         productObj.productId = newId
         productObj.ofUser = productModel.ofUser
+        
         do {
             try managedObjectContext.save()
+            coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
         } catch let error as NSError {
-            print(error)
+            coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
         }
     }
     
@@ -124,10 +171,11 @@ extension DataHandling {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<ProductInfo>(entityName: "ProductInfo")
+        fetchRequest.predicate = NSPredicate(format: "productId == %d", productId)
         
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)
-            return tasks.filter { $0.productId == productId}.first
+            return tasks.count > 0 ? tasks.first : nil
         }
         catch let error as NSError {
             print(error)
@@ -172,7 +220,7 @@ extension DataHandling {
         }
     }
     
-    func deleteProduct(productId: Int64) {
+    func deleteProduct(productId: Int64, coreDataClosure: CoreDataClosure) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let productInfo = fetchSingleProduct(productId: productId)
@@ -180,13 +228,14 @@ extension DataHandling {
             managedObjectContext.delete(productInfo)
             do {
                 try managedObjectContext.save()
+                coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
             } catch let error as NSError {
-                print(error)
+                 coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
             }
         }
     }
     
-    func deleteAllProduct(userInfo: UserInfo) {
+    func deleteAllProduct(userInfo: UserInfo, coreDataClosure: CoreDataClosure) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let productList = fetchAllProduct(userInfo: userInfo)
@@ -196,13 +245,14 @@ extension DataHandling {
         
         do {
             try managedObjectContext.save()
+            coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
         } catch let error as NSError {
-            print(error)
+             coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
         }
     }
 
     
-    func updateProductInfo(productId: Int64, productModel: ProductInfoModel){
+    func updateProductInfo(productId: Int64, productModel: ProductInfoModel, coreDataClosure: CoreDataClosure){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let productInfo = fetchSingleProduct(productId: productId)
@@ -216,8 +266,9 @@ extension DataHandling {
 
             do {
                 try managedObjectContext.save()
+                coreDataClosure?(ActionCoreDataState(success: true, numberSuccess: 1, numberFail: 0, message: ""))
             } catch let error as NSError {
-                print(error)
+                 coreDataClosure?(ActionCoreDataState(success: false, numberSuccess: 0, numberFail: 1, message: error.localizedDescription))
             }
         }
     }

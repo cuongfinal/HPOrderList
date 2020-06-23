@@ -36,12 +36,17 @@ class CreateProductVC: BaseVCCanBack {
     
     @IBAction func createProductTapped(_ sender: Any) {
         let productModel = ProductInfoModel(quantity: Int32(ivQuantity.currencyInputted), price: Int64(ivPrice.currencyInputted), paid: Int64(ivPaid.currencyInputted), status: swProductReturn.isOn , ofUser: userInfo, note: ivNote.value, name: ivName.value)
-        DataHandling().addProduct(productModel: productModel)
-        goBack()
+        DataHandling().addProduct(productModel: productModel){ result in
+            if !result.success {
+                self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+            }else{
+                self.goBack()
+            }
+        }
     }
     
     private func reloadTotalMoney() {
-        lbTotalMoney.text = CommonUtil.convertCurrency(Int64((ivPrice.currencyInputted * (Int(ivQuantity.value) ?? 0)) - ivPaid.currencyInputted), currency: "VND")
+        lbTotalMoney.text = CommonUtil.convertCurrency(Int64((ivPrice.currencyInputted * (Int(ivQuantity.value) ?? 0)) - ivPaid.currencyInputted), currency: "")
     }
     
     private func reloadBtnSubmit(){

@@ -224,7 +224,7 @@ extension FInputView : UITextFieldDelegate, BaseTextFieldDelegate {
             return true
         }
         
-        let format = "[A-Z0-9a-z]{1,}"
+        let format = "[A-Z0-9a-z ]{1,}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", format)
         if !predicate.evaluate(with: string){
             return false

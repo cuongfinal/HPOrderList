@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+typealias StateClosure = ((ClosureState)->())?
+struct ClosureState {
+    var success = true
+    var message = ""
+}
+
 struct DocumentsDirectory {
     static let localDocumentsURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask).last!
     static let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
@@ -19,6 +25,7 @@ class CSVWorking{
     func exportDatabase(stateClosure: StateClosure) {
         let exportString = createExportString()
         saveAndExport(exportString: exportString) { closureState in
+            CommonUtil.setDefaultLastUpdate(lastUpdate: Date().timeIntervalSince1970)
             stateClosure?(closureState)
         }
     }
@@ -48,6 +55,7 @@ class CSVWorking{
             }
         } catch {
             stateClosure?(ClosureState(success: false, message: error.localizedDescription))
+            return
         }
         
         if fileHandle != nil {
@@ -58,11 +66,87 @@ class CSVWorking{
             //Copy to icloud
             if isCloudEnabled() {
                 iCloudUpload { closureState in
-                    stateClosure?(closureState)
+                    //TODO: re-check
+                    stateClosure?(ClosureState(success: true, message: ""))
+                }
+            }else{
+                stateClosure?(ClosureState(success: true, message: ""))
+            }
+        }
+    }
+}
+
+extension CSVWorking {
+    func parseCSV (contentsOfURL: URL, encoding: String.Encoding, error: NSErrorPointer) -> [UserInfoModel]? {
+        
+        var items:[UserInfoModel]?
+    
+        if let content = try? String(contentsOf: contentsOfURL, encoding: encoding) {
+            items = []
+            var lines:[String] = content.components(separatedBy: NSCharacterSet.newlines) as [String]
+            //Remove header
+            if lines.count > 0 {
+                lines.remove(at: 0)
+            }
+            
+            for lineStr in lines {
+                if lineStr.count > 0 {
+                    let valuesParsed = parseCsvLine(ln: lineStr)
+                    // Put the values into the tuple and add it to the items array
+                    var newUserInfo = UserInfoModel()
+                    newUserInfo.username = valuesParsed[0]
+                    newUserInfo.phoneNumber = valuesParsed[1]
+                    newUserInfo.address = valuesParsed[2]
+                    newUserInfo.others = valuesParsed[3]
+                    items?.append(newUserInfo)
                 }
             }
-            stateClosure?(ClosureState(success: true, message: ""))
         }
+        
+        return items
+    }
+    
+    func parseCsvLine(ln: String) -> [String] {
+        // takes a line of a CSV file and returns the separated values
+        // so input of 'a,b,2' should return ["a","b","2"]
+        // or input of '"Houston, TX","Hello",5,"6,7"' should return ["Houston, TX","Hello","5","6,7"]
+        
+        let delimiter = ","
+        let quote = "\""
+        var nextTerminator = delimiter
+        var andDiscardDelimiter = false
+        let totalField = 4
+        var currentValue = ""
+        var allValues : [String] = []
+        
+        for char in ln {
+            let chr = String(char)
+            if chr == nextTerminator {
+                if andDiscardDelimiter {
+                    // we've found the comma after a closing quote. No action required beyond clearing this flag.
+                    andDiscardDelimiter = false
+                }
+                else {
+                    // we've found the comma or closing quote terminating one value
+                    allValues.append(currentValue)
+                    currentValue = ""
+                }
+                nextTerminator = delimiter  // either way, next thing we look for is the comma
+            } else if chr == quote {
+                // this is an OPENING quote, so clear currentValue (which should be nothing but maybe a single space):
+                currentValue = ""
+                nextTerminator = quote
+                andDiscardDelimiter = true
+            } else {
+                currentValue += chr
+            }
+        }
+        //Add "" value for missing field
+        let remainingField = totalField - allValues.count
+        for _ in 0..<remainingField {
+            allValues.append("")
+        }
+        return allValues
     }
 }
 
@@ -81,6 +165,7 @@ extension CSVWorking {
                 }
                 catch {
                     stateClosure?(ClosureState(success: false, message: error.localizedDescription))
+                    return
                 }
             }
         }
@@ -98,6 +183,7 @@ extension CSVWorking {
             }
             catch {
                 stateClosure?(ClosureState(success: false, message: error.localizedDescription))
+                return
             }
         }
         
@@ -106,6 +192,7 @@ extension CSVWorking {
         }
         catch {
             stateClosure?(ClosureState(success: false, message: error.localizedDescription))
+            return
         }
         stateClosure?(ClosureState(success: true, message: ""))
     }

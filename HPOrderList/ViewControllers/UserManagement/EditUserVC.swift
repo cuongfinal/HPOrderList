@@ -42,8 +42,13 @@ class EditUserVC: BaseVCCanBack {
         }
         
         let userModel = UserInfoModel(username: userInfo.username ?? "", phoneNumber: ivPhone.value, address: ivAddress.value, others: ivOther.value)
-        DataHandling().updateUserInfo(userModel: userModel)
-        goBack()
+        DataHandling().updateUserInfo(userModel: userModel){ result in
+            if !result.success {
+                self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+            }else{
+                self.goBack()
+            }
+        }
     }
     
     private func reloadBtnSubmit(){

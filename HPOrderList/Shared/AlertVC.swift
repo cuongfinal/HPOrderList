@@ -10,13 +10,8 @@
 import Foundation
 import UIKit
 typealias CompletedClosure = (()->())?
-typealias StateClosure = ((ClosureState)->())?
 typealias ConfirmClosure = (()->())?
 
-struct ClosureState {
-    var success = true
-    var message = ""
-}
 protocol AlertVCDelegate: class {
     func autoPopAlert()
 }

@@ -45,6 +45,23 @@ class HomeVC: BaseVC {
         CommonUtil.addRightBtn(to: self, imageNamed: "plus-icon", with: #selector(self.rightBtnAction))
         tbUserlist.separatorColor = UIColor.borderColor
         self.extendedLayoutIncludesOpaqueBars = true
+        checkAutoBackup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    func checkAutoBackup(){
+        if CommonUtil.willStartAutoBackup(){
+            CSVWorking().exportDatabase { result in
+                if result.success {
+                    self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_backup_files_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+                }else{
+                    self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+                }
+            }
+        }
     }
     
     func filterContentForSearchText(_ searchText: String) {
@@ -112,8 +129,13 @@ class HomeVC: BaseVC {
     
     func confirmDelete(userData: UserInfo){
         self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
-            DataHandling().deleteUser(userName: userData.username ?? "")
-            self.reloadData()
+            DataHandling().deleteUser(userName: userData.username ?? "") { result in
+                if !result.success {
+                    self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+                }else{
+                    self.reloadData()
+                }
+            }
         }))
     }
 }

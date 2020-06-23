@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 @objc protocol CommonUtilDelegate : NSObjectProtocol {
     @objc func goBack()
@@ -153,6 +154,36 @@ class CommonUtil : NSObject {
         vc?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: close, style: .plain, target: vc, action: selector)
         vc?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
+}
+
+extension CommonUtil {
+    static func getDefaultAutoBackup() -> Bool {
+        return UserDefaults.standard.bool(forKey: AutoBackUpDefaultKey)
+    }
     
+    static func setDefaultAutoBackup(state: Bool){
+        let ud = UserDefaults.standard
+        ud.set(state, forKey: AutoBackUpDefaultKey)
+        ud.synchronize()
+    }
+    
+    static func getDefaultLastUpdate() -> Double {
+        return UserDefaults.standard.double(forKey: LastUpdateDefaultKey)
+    }
+    
+    static func setDefaultLastUpdate(lastUpdate: TimeInterval){
+        let ud = UserDefaults.standard
+        ud.set(lastUpdate, forKey: LastUpdateDefaultKey)
+        ud.synchronize()
+    }
+    
+    static func willStartAutoBackup() -> Bool {
+        let nextUpdate = DateInRegion.init(seconds: getDefaultLastUpdate()).convertTo(region: .current).dateByAdding(3, .day)
+        let currentDate = DateInRegion.init(Date(), region: .current)
+        if nextUpdate < currentDate && getDefaultAutoBackup() {
+            return true
+        }
+        return false
+    }
 }
 

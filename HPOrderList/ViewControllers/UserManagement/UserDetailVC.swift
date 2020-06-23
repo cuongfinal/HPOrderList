@@ -135,16 +135,26 @@ class UserDetailVC: BaseVC {
     }
     
     func confirmDeleteProduct(productInfo: ProductInfo){
-        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
-            DataHandling().deleteProduct(productId: productInfo.productId)
-            self.reloadData()
+        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_product_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
+            DataHandling().deleteProduct(productId: productInfo.productId){ result in
+                if !result.success {
+                    self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+                }else{
+                    self.reloadData()
+                }
+            }
         }))
     }
     
     func confirmDeleteAll(){
-        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
-            DataHandling().deleteAllProduct(userInfo: self.userInfo ?? UserInfo())
-            self.reloadData()
+        self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_product_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
+            DataHandling().deleteAllProduct(userInfo: self.userInfo ?? UserInfo()){ result in
+                if !result.success {
+                    self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+                }else{
+                    self.reloadData()
+                }
+            }
         }))
     }
 }

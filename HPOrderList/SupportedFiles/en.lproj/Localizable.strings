@@ -18,6 +18,7 @@
 "contact_title" = "Liên hệ";
 "guideline_title" = "Hướng dẫn sử dụng";
 "app_version_title" = "Phiên bản hiện tại: %@";
+"last_update_title" = "Lần sao lưu gần nhất: %@";
 
 "total_money" = "Tổng số tiền: %@";
 "total_paid_money" = "Tổng số tiền cọc: %@";
@@ -26,13 +27,21 @@
 //
 "alert_confirm_title" = "Hỏi lại nè 🤨";
 "alert_delete_content" = "Chắn chắn xoá chưa?\nChưa sao lưu là không khôi phục được đâu nha!!";
+"alert_delete_product_content" = "Chắn chắn xoá chưa?\nXoá rồi là không khôi phục được đâu đó!!";
+
 "alert_cancel_btn" = "Nghĩ lại đã";
 "alert_ok_btn" = "Ok lah";
 
 "alert_success_title" = "Yayyyy !! 🥳";
-"alert_fail_title" = "Lỗi rồi 🙃";
+"alert_fail_title" = "Aww! Lỗi rồi 🙃";
 
 "alert_backup_files_content" = "Sao lưu dữ liệu thành công, mở ứng dụng Files và check trong mục On My iPhone nha bạn ơi 🥰";
 "alert_email_title" = "[HPOrderList] Backup data - %@";
 "alert_email_content" = "Vui lòng kiểm tra nội dung file đính kèm, email đến %@ nếu bạn cần support gì nha ☺️☺️☺️";
 "alert_email_sent_content" = "Email đã gửi thành công 😍";
+"alert_setup_email_content" = "Vui lòng setup Email trong cài đặt thiết bị để sử dụng chức năng này";
+"alert_autobackup_content" = "Dữ liệu sẽ được tự động sao lưu vào Files App mỗi 3 ngày khi bạn mở ứng dụng 😋😋";
+"email_contact_title" = "[HPOrderList] Issue Support";
+//
+"error_dupplicate_user" = "Tên K/H đã tồn tại 🙄";
+"success_import_user_csv" = "Phục hồi thành công %d K/H, có %d thông tin K/H đã tồn tại";
