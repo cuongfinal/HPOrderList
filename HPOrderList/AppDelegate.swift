@@ -15,14 +15,37 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
+        RemoteConfigUtils.sharedInstance.fetchRemoteConfig {
+            self.checkForceUpdate()
+        }
         return true
     }
 
+    func checkForceUpdate(){
+        let updateString = RemoteConfigUtils.sharedInstance.getString(key: "currentVersion")
+        if updateString.count > 0 {
+            let newVersion = Int(updateString.replacingOccurrences(of: ".", with: "")) ?? 0
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            let currentVersion = Int(appVersion?.replacingOccurrences(of: ".", with: "") ?? "") ?? 0
+            let appStoreURL = "itms-apps://itunes.apple.com/app/1521206567";
+            DispatchQueue.main.async {
+                if let rootView = UIApplication.shared.keyWindow?.rootViewController, let url = URL.init(string: appStoreURL),  currentVersion < newVersion {
+                    rootView.present(AlertVC.shared.warningAlert("", message: "Bạn vui lòng cập nhật phiên bản mới nhất để tiếp tục sử dụng 😁😁", cancelTitle: "Cập nhật", completedClosure: {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }))
+                }
+            }
+        }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        checkForceUpdate()
+    }
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

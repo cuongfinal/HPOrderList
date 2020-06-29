@@ -7,7 +7,7 @@ target 'HPOrderList' do
 
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftDate'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
-  pod 'Firebase/Crashlytics'
 end

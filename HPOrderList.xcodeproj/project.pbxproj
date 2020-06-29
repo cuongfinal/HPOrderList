@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		27574C6ACF84034A5DDA251A /* Pods_HPOrderList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD00F23183E1A8FFE55026EE /* Pods_HPOrderList.framework */; };
 		5F62433524A23F250012B4AB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F62433424A23F250012B4AB /* CloudKit.framework */; };
-		5F62433724A24B2F0012B4AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F62433624A24B2F0012B4AB /* GoogleService-Info.plist */; };
 		5F96FAF524962459009AA3D1 /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF424962459009AA3D1 /* UserDetailVC.swift */; };
 		5F96FAF724962489009AA3D1 /* ListProductTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */; };
 		5F96FAF9249624BB009AA3D1 /* ListProductGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */; };
@@ -63,6 +62,8 @@
 		5FD7DF77249659B300CEC079 /* ProductInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD7DF76249659B300CEC079 /* ProductInfoModel.swift */; };
 		D43D9B9624A99FC50022E53D /* BaseImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43D9B9524A99FC50022E53D /* BaseImagePicker.swift */; };
 		D48102CE24A0DCEC006FF472 /* EmailHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48102CD24A0DCEC006FF472 /* EmailHandling.swift */; };
+		D49F09FA24A9CA640097785F /* RemoteConfigUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F09F924A9CA640097785F /* RemoteConfigUtils.swift */; };
+		D49F09FE24A9CE410097785F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D49F09FD24A9CE410097785F /* GoogleService-Info.plist */; };
 		D4A3491E248629D4004330E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3491D248629D4004330E3 /* AppDelegate.swift */; };
 		D4A34925248629D4004330E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A34923248629D4004330E3 /* Main.storyboard */; };
 		D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4A34926248629D4004330E3 /* HPOrderList.xcdatamodeld */; };
@@ -115,7 +116,6 @@
 
 /* Begin PBXFileReference section */
 		5F62433424A23F250012B4AB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		5F62433624A24B2F0012B4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F96FAF424962459009AA3D1 /* UserDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
 		5F96FAF624962489009AA3D1 /* ListProductTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductTableVC.swift; sourceTree = "<group>"; };
 		5F96FAF8249624BB009AA3D1 /* ListProductGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductGridVC.swift; sourceTree = "<group>"; };
@@ -170,6 +170,8 @@
 		D00570F94CFDE25DD5D6811F /* Pods-HPOrderList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPOrderList.debug.xcconfig"; path = "Target Support Files/Pods-HPOrderList/Pods-HPOrderList.debug.xcconfig"; sourceTree = "<group>"; };
 		D43D9B9524A99FC50022E53D /* BaseImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImagePicker.swift; sourceTree = "<group>"; };
 		D48102CD24A0DCEC006FF472 /* EmailHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandling.swift; sourceTree = "<group>"; };
+		D49F09F924A9CA640097785F /* RemoteConfigUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigUtils.swift; sourceTree = "<group>"; };
+		D49F09FD24A9CE410097785F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4A3491A248629D4004330E3 /* HPOrderList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HPOrderList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A3491D248629D4004330E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A34924248629D4004330E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -459,7 +461,7 @@
 		D4DFF2D5248A367E009CA13E /* SupportedFiles */ = {
 			isa = PBXGroup;
 			children = (
-				5F62433624A24B2F0012B4AB /* GoogleService-Info.plist */,
+				D49F09FD24A9CE410097785F /* GoogleService-Info.plist */,
 				D4DFF2FD248A3AB2009CA13E /* Fonts */,
 				D4A34929248629D6004330E3 /* Assets.xcassets */,
 				D4A34926248629D4004330E3 /* HPOrderList.xcdatamodeld */,
@@ -550,6 +552,7 @@
 				5FD7DF712496581600CEC079 /* DataHandling.swift */,
 				D4CBF12C249CD59400FBFEE3 /* CSVWorking.swift */,
 				D48102CD24A0DCEC006FF472 /* EmailHandling.swift */,
+				D49F09F924A9CA640097785F /* RemoteConfigUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				D4A34917248629D4004330E3 /* Frameworks */,
 				D4A34918248629D4004330E3 /* Resources */,
 				523C3FFE93B9430B69757401 /* [CP] Embed Pods Frameworks */,
+				D49F09F824A9C8340097785F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -688,7 +692,7 @@
 				5F9E21A624967BE500E0C862 /* SSwitchView.xib in Resources */,
 				5F9E21D72497037F00E0C862 /* SwiftDataTables.bundle in Resources */,
 				D4DFF30A248A3AB2009CA13E /* SF-Pro-Text-Light.otf in Resources */,
-				5F62433724A24B2F0012B4AB /* GoogleService-Info.plist in Resources */,
+				D49F09FE24A9CE410097785F /* GoogleService-Info.plist in Resources */,
 				5F96FB05249626FB009AA3D1 /* SNavigationView.xib in Resources */,
 				D4A34925248629D4004330E3 /* Main.storyboard in Resources */,
 			);
@@ -713,6 +717,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HPOrderList/Pods-HPOrderList-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D49F09F824A9C8340097785F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/SupportedFiles/${GOOGLESERVICE_INFO_PLIST}\n\nfind \"${DWARF_DSYM_FOLDER_PATH}\" -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp \"${GOOGLESERVICE_INFO_PROD}\" -p ios \\{\\}\n\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		F9277420B653E22B8E8E649C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -756,6 +777,7 @@
 				D4DFF2EE248A39F0009CA13E /* UIView.swift in Sources */,
 				D4A34928248629D4004330E3 /* HPOrderList.xcdatamodeld in Sources */,
 				5F9E21EE2497037F00E0C862 /* DataTableSortable.swift in Sources */,
+				D49F09FA24A9CA640097785F /* RemoteConfigUtils.swift in Sources */,
 				D4E92E2A24922E1F00A1F429 /* CreateProductVC.swift in Sources */,
 				5F96FB06249626FB009AA3D1 /* SSRadioButtonsController.swift in Sources */,
 				D4E92E212492267700A1F429 /* FInputView.swift in Sources */,
@@ -978,7 +1000,7 @@
 				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1002,7 +1024,7 @@
 				CODE_SIGN_ENTITLEMENTS = HPOrderList/HPOrderList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Le Quang Tuan Cuong (SH8U84996J)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 48HJA497TD;
 				INFOPLIST_FILE = HPOrderList/SupportedFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
