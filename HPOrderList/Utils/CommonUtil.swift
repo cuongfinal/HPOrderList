@@ -154,6 +154,15 @@ class CommonUtil : NSObject {
         vc?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: close, style: .plain, target: vc, action: selector)
         vc?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
+    
+    static func willStartAutoBackup() -> Bool {
+        let nextUpdate = DateInRegion.init(seconds: getDefaultLastUpdate()).convertTo(region: .current).dateByAdding(3, .day)
+        let currentDate = DateInRegion.init(Date(), region: .current)
+        if nextUpdate < currentDate && getDefaultAutoBackup() {
+            return true
+        }
+        return false
+    }
 }
 
 extension CommonUtil {
@@ -177,13 +186,24 @@ extension CommonUtil {
         ud.synchronize()
     }
     
-    static func willStartAutoBackup() -> Bool {
-        let nextUpdate = DateInRegion.init(seconds: getDefaultLastUpdate()).convertTo(region: .current).dateByAdding(3, .day)
-        let currentDate = DateInRegion.init(Date(), region: .current)
-        if nextUpdate < currentDate && getDefaultAutoBackup() {
-            return true
-        }
-        return false
+    static func getDefaultDisableWaterMark() -> Bool {
+        return UserDefaults.standard.bool(forKey: DisableWaterMark)
+    }
+    
+    static func setDefaultDisableWaterMark(state: Bool){
+        let ud = UserDefaults.standard
+        ud.set(state, forKey: DisableWaterMark)
+        ud.synchronize()
+    }
+    
+    static func getDefaultWaterMark() -> Data? {
+        return UserDefaults.standard.data(forKey: DefaultWaterMark)
+    }
+    
+    static func setDefaultWaterMark(data: Data){
+        let ud = UserDefaults.standard
+        ud.set(data, forKey: DefaultWaterMark)
+        ud.synchronize()
     }
 }
 

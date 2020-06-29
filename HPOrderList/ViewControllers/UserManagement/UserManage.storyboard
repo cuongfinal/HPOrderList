@@ -396,7 +396,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qW-xq-JpG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="776"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-junes" translatesAutoresizingMaskIntoConstraints="NO" id="GJY-M1-Upz">
+                                        <rect key="frame" x="90.5" y="407.5" width="233" height="232.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GJY-M1-Upz" secondAttribute="height" multiplier="1:1" id="XTw-uC-eX0"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="GJY-M1-Upz" firstAttribute="height" secondItem="4qW-xq-JpG" secondAttribute="height" multiplier="0.3" id="Eh4-jd-bpZ"/>
+                                    <constraint firstItem="GJY-M1-Upz" firstAttribute="centerY" secondItem="4qW-xq-JpG" secondAttribute="centerY" multiplier="1.35" id="XEI-fq-CFL"/>
+                                    <constraint firstItem="GJY-M1-Upz" firstAttribute="centerX" secondItem="4qW-xq-JpG" secondAttribute="centerX" id="whM-bA-ztR"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFo-Lr-ItW">
                                 <rect key="frame" x="0.0" y="776" width="414" height="86"/>
@@ -445,6 +458,7 @@
                     </view>
                     <connections>
                         <outlet property="btnMainAction" destination="Jpu-me-e3x" id="FqM-qs-IUm"/>
+                        <outlet property="imgWaterMark" destination="GJY-M1-Upz" id="lSW-ey-AQq"/>
                         <outlet property="viewMainAction" destination="lFo-Lr-ItW" id="BEq-gt-Zw1"/>
                         <outlet property="viewTable" destination="4qW-xq-JpG" id="1cH-96-jtp"/>
                     </connections>
@@ -477,7 +491,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.8980392157" green="0.91372549020000005" blue="0.93419510130000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Số điện thoại"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Tên K/H"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hasTitle" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -575,8 +589,8 @@
                     <connections>
                         <outlet property="btnCreate" destination="Kve-fX-RI9" id="xcd-X7-6oA"/>
                         <outlet property="ivAddress" destination="ZUl-dG-z0k" id="FLl-Ya-nUN"/>
+                        <outlet property="ivName" destination="F6a-rI-dUu" id="VMw-cd-tyG"/>
                         <outlet property="ivOther" destination="iwt-Jh-BaI" id="Jk2-fh-iG5"/>
-                        <outlet property="ivPhone" destination="F6a-rI-dUu" id="e2z-4C-YU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emV-aK-mA9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -830,11 +844,11 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196078430000004" green="0.91372549020000005" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="o4c-do-FFq" secondAttribute="bottom" id="2D5-ux-1O1"/>
                                     <constraint firstAttribute="trailing" secondItem="o4c-do-FFq" secondAttribute="trailing" constant="10" id="6wy-cW-nyj"/>
                                     <constraint firstItem="YPq-7h-YTi" firstAttribute="centerY" secondItem="VLU-kh-ui8" secondAttribute="centerY" multiplier="1.3" id="FKE-1G-POv"/>
-                                    <constraint firstAttribute="bottom" secondItem="o4c-do-FFq" secondAttribute="bottom" id="Idj-bA-jBy"/>
                                     <constraint firstItem="YPq-7h-YTi" firstAttribute="leading" secondItem="VLU-kh-ui8" secondAttribute="leading" constant="10" id="JFf-NM-SvE">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="ratio" value="YES"/>
@@ -845,52 +859,72 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Thh-9C-gqz">
-                                <rect key="frame" x="0.0" y="762" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="751" width="414" height="111"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tổng số tiền" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyT-jh-c35">
-                                        <rect key="frame" x="10" y="10" width="394" height="20"/>
+                                        <rect key="frame" x="10" y="15" width="394" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="57L-kw-E9j"/>
+                                            <constraint firstAttribute="height" constant="22" id="57L-kw-E9j"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
                                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiền đã cọc:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-dP-ZFC">
-                                        <rect key="frame" x="10" y="40" width="394" height="20"/>
+                                        <rect key="frame" x="10" y="47" width="394" height="22"/>
                                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
                                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiền còn lại:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMc-0b-V8f">
-                                        <rect key="frame" x="10" y="70" width="394" height="20"/>
+                                        <rect key="frame" x="10" y="79" width="394" height="22"/>
                                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
                                         <color key="textColor" red="0.1058823529" green="0.12549019610000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-junes" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-OF-3BK">
+                                        <rect key="frame" x="305" y="2" width="109" height="109"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="UQY-OF-3BK" secondAttribute="height" multiplier="1:1" id="y75-p9-1Ow"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-Pe-egw">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="oPd-0p-tcf"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196078431372551" green="0.9137254901960784" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="XyT-jh-c35" firstAttribute="leading" secondItem="Thh-9C-gqz" secondAttribute="leading" constant="10" id="0sh-OB-UWh"/>
                                     <constraint firstAttribute="trailing" secondItem="XyT-jh-c35" secondAttribute="trailing" constant="10" id="96M-id-UAa"/>
                                     <constraint firstItem="MMc-0b-V8f" firstAttribute="top" secondItem="qoF-dP-ZFC" secondAttribute="bottom" constant="10" id="Frq-wD-Xgl"/>
                                     <constraint firstItem="qoF-dP-ZFC" firstAttribute="top" secondItem="XyT-jh-c35" secondAttribute="bottom" constant="10" id="IZF-AJ-pRK"/>
-                                    <constraint firstItem="XyT-jh-c35" firstAttribute="top" secondItem="Thh-9C-gqz" secondAttribute="top" constant="10" id="Nge-KM-mdg"/>
+                                    <constraint firstItem="XyT-jh-c35" firstAttribute="top" secondItem="Thh-9C-gqz" secondAttribute="top" constant="15" id="Nge-KM-mdg"/>
+                                    <constraint firstAttribute="bottom" secondItem="UQY-OF-3BK" secondAttribute="bottom" id="Opp-sL-16l"/>
+                                    <constraint firstItem="5fa-Pe-egw" firstAttribute="top" secondItem="Thh-9C-gqz" secondAttribute="top" id="QpU-T2-ZMQ"/>
+                                    <constraint firstItem="5fa-Pe-egw" firstAttribute="centerX" secondItem="Thh-9C-gqz" secondAttribute="centerX" id="RYj-kI-20s"/>
                                     <constraint firstItem="qoF-dP-ZFC" firstAttribute="leading" secondItem="XyT-jh-c35" secondAttribute="leading" id="ahC-Ex-VYy"/>
                                     <constraint firstItem="qoF-dP-ZFC" firstAttribute="height" secondItem="XyT-jh-c35" secondAttribute="height" id="b6V-fx-7Ys"/>
                                     <constraint firstItem="qoF-dP-ZFC" firstAttribute="width" secondItem="XyT-jh-c35" secondAttribute="width" id="ccs-Em-q3I"/>
                                     <constraint firstAttribute="bottom" secondItem="MMc-0b-V8f" secondAttribute="bottom" constant="10" id="ckB-oB-NyS"/>
                                     <constraint firstItem="MMc-0b-V8f" firstAttribute="leading" secondItem="qoF-dP-ZFC" secondAttribute="leading" id="d85-Hl-YEx"/>
                                     <constraint firstItem="MMc-0b-V8f" firstAttribute="width" secondItem="qoF-dP-ZFC" secondAttribute="width" id="gYM-49-B5N"/>
+                                    <constraint firstItem="5fa-Pe-egw" firstAttribute="width" secondItem="Thh-9C-gqz" secondAttribute="width" id="gwc-qA-347"/>
+                                    <constraint firstAttribute="trailing" secondItem="UQY-OF-3BK" secondAttribute="trailing" id="n1x-Zb-NSj"/>
                                     <constraint firstItem="MMc-0b-V8f" firstAttribute="height" secondItem="XyT-jh-c35" secondAttribute="height" id="qu9-ol-fJ0"/>
+                                    <constraint firstItem="UQY-OF-3BK" firstAttribute="top" secondItem="5fa-Pe-egw" secondAttribute="bottom" id="sR6-Rb-eff"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-5H-3wu">
-                                <rect key="frame" x="0.0" y="109" width="414" height="653"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196078430000004" green="0.91372549020000005" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mnK-zD-b9L" firstAttribute="bottom" secondItem="Thh-9C-gqz" secondAttribute="bottom" id="97w-XB-etv"/>
                             <constraint firstItem="Thh-9C-gqz" firstAttribute="top" secondItem="5VZ-5H-3wu" secondAttribute="bottom" id="NWJ-Ly-X6X"/>
@@ -911,6 +945,7 @@
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="o4c-do-FFq" id="cOk-aZ-H2g"/>
+                        <outlet property="imgWaterMark" destination="UQY-OF-3BK" id="6Jc-Gk-Lzs"/>
                         <outlet property="lbPaid" destination="qoF-dP-ZFC" id="j3a-Cr-Kk5"/>
                         <outlet property="lbRemainingMoney" destination="MMc-0b-V8f" id="uEM-it-drR"/>
                         <outlet property="lbTotalMoney" destination="XyT-jh-c35" id="mg5-BZ-IID"/>
@@ -924,4 +959,7 @@
             <point key="canvasLocation" x="2826" y="33"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-junes" width="512" height="512"/>
+    </resources>
 </document>

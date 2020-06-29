@@ -12,7 +12,7 @@ class UserDetailVC: BaseVC {
     @IBOutlet weak var viewTable: UIView!
     @IBOutlet weak var viewMainAction: UIView!
     @IBOutlet weak var btnMainAction: RoundedButton!
-    
+    @IBOutlet weak var imgWaterMark: UIImageView!
     var headerView: UserDetailHeaderView!
     var btnController: SSRadioButtonsController?
     var userInfo: UserInfo?
@@ -27,6 +27,7 @@ class UserDetailVC: BaseVC {
         setupTableView()
         setupUIHeader()
         setupSelectedTableTabbar()
+        handleShowWaterMark()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,23 @@ class UserDetailVC: BaseVC {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    func handleShowWaterMark(){
+        imgWaterMark.alpha = 0.15
+        if !CommonUtil.getDefaultDisableWaterMark(){
+            imgWaterMark.isHidden = true
+        }else{
+            if let imgData = CommonUtil.getDefaultWaterMark() {
+                if let img = UIImage(data: imgData){
+                    imgWaterMark.image = img
+                }else {
+                    imgWaterMark.image = UIImage(named: "logo-junes")
+                }
+            }else{
+                imgWaterMark.image = UIImage(named: "logo-junes")
+            }
+        }
     }
     
     func calculateMomey(){
@@ -96,6 +114,7 @@ class UserDetailVC: BaseVC {
         listTable.tableView.frame = viewTable.frame
         listTable.delegate = self
         listTable.dataSource = dataSource
+        listTable.tableView.backgroundColor = .clear
         self.viewTable.addSubview(listTable.tableView)
     }
 

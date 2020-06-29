@@ -6,13 +6,17 @@
   Copyright © 2020 Cuong Le. All rights reserved.
 */
 
-"home_title" = "Quản Lý Khách hàng";
+"home_title" = "Quản Lý Khách Hàng";
 "setting_title" = "Cài Đặt";
 
 "support_function" = "Tính năng bổ trợ";
 "backup_title" = "Sao lưu dữ liệu khách hàng";
 "restore_title" = "Khôi phục dữ liệu khách hàng";
 "auto_backup_title" = "Tự động sao lưu";
+"show_hide_watermark" = "Ẩn/Hiện Watermark";
+"change_watermark" = "Thay đổi ảnh Watermark";
+"photo_alert_title" = "Chọn ảnh nền trắng hoặc trong suốt với kích cỡ vuông (vd: 1024x1024) để hiển thị ổn áp nhất nha!!";
+"photo_library" = "Chọn từ thư viện ảnh";
 
 "support_title" = "Hỗ trợ";
 "contact_title" = "Liên hệ";
@@ -43,5 +47,8 @@
 "alert_autobackup_content" = "Dữ liệu sẽ được tự động sao lưu vào Files App mỗi 3 ngày khi bạn mở ứng dụng 😋😋";
 "email_contact_title" = "[HPOrderList] Issue Support";
 //
-"error_dupplicate_user" = "Tên K/H đã tồn tại 🙄";
+"error_dupplicate_user" = "SĐT K/H đã tồn tại 🙄";
 "success_import_user_csv" = "Phục hồi thành công %d K/H, có %d thông tin K/H đã tồn tại";
+
+"alert_watermark_save_ok" = "Ảnh Watermark đã được lưu lại 😇😇";
+"alert_watermark_save_ng" = "Ảnh được chọn ko dùng làm Watermark được, vui lòng chọn ảnh khác 😗😗";

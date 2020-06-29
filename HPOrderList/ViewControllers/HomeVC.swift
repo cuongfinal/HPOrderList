@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MessageUI
+import SwiftDate
 
 class HomeVC: BaseVC {
     var dataSource = [UserInfo]()
@@ -56,7 +58,29 @@ class HomeVC: BaseVC {
         if CommonUtil.willStartAutoBackup(){
             CSVWorking().exportDatabase { result in
                 if result.success {
-                    self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_backup_files_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+                    let mailComposer = MFMailComposeViewController()
+                    mailComposer.mailComposeDelegate = self
+                    if MFMailComposeViewController.canSendMail(){
+                        let currentDate = DateInRegion.init(Date(), region: .current).toFormat("dd/MM/yyyy hh:mm")
+                        //Set the subject and message of the email
+                        mailComposer.setSubject(String.init(format: "alert_email_title".localized(), currentDate))
+                        mailComposer.setMessageBody(String.init(format: "alert_email_content".localized(), supportEmail), isHTML: false)
+                        
+                        let filePath = DocumentsDirectory.localDocumentsURL.appendingPathComponent(exportFileName)
+                        if FileManager.default.fileExists(atPath: filePath.path){
+                            do {
+                                let fileData = try Data(contentsOf: filePath)
+                                mailComposer.addAttachmentData(fileData as Data, mimeType: "text/csv", fileName: "UsersList")
+                                DispatchQueue.main.async {
+                                    self.present(mailComposer, animated: true, completion: nil)
+                                }
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }else{
+                        self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: "alert_setup_email_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+                    }
                 }else{
                     self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
                 }
@@ -129,7 +153,7 @@ class HomeVC: BaseVC {
     
     func confirmDelete(userData: UserInfo){
         self.present(AlertVC.shared.confirmAlert("alert_confirm_title".localized(), message: "alert_delete_content".localized(), cancelTitle: "alert_cancel_btn".localized(), confirmTitle: "alert_ok_btn".localized(), completedClosure: nil, confirmClosure: {
-            DataHandling().deleteUser(userName: userData.username ?? "") { result in
+            DataHandling().deleteUser(phoneNumber: userData.phoneNumber ?? "") { result in
                 if !result.success {
                     self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
                 }else{
@@ -196,6 +220,18 @@ extension HomeVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
+    }
+}
+
+extension HomeVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss {
+            if result == .sent {
+                self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_email_sent_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+            }else if result == .failed{
+                self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: error?.localizedDescription, cancelTitle: "Đóng", completedClosure: nil))
+            }
+        }
     }
 }
 

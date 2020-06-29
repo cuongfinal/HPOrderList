@@ -24,7 +24,7 @@ class DataHandling {
     func addUser(userModel: UserInfoModel, coreDataClosure: CoreDataClosure){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
-        let checkUser = fetchSingleUser(userName: userModel.username)
+        let checkUser = fetchSingleUser(phoneNumber: userModel.phoneNumber)
         if checkUser == nil {
             let userObj = UserInfo(context: managedObjectContext)
             userObj.phoneNumber = userModel.phoneNumber
@@ -50,7 +50,7 @@ class DataHandling {
         var numberFailture = 0
         
         for userModel in usersModel {
-            let checkUser = fetchSingleUser(userName: userModel.username)
+            let checkUser = fetchSingleUser(phoneNumber: userModel.phoneNumber)
             if checkUser == nil {
                 numberSuccess += 1
                 let userObj = UserInfo(context: managedObjectContext)
@@ -71,11 +71,11 @@ class DataHandling {
         }
     }
     
-    func fetchSingleUser(userName : String) -> UserInfo? {
+    func fetchSingleUser(phoneNumber : String) -> UserInfo? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<UserInfo>(entityName: "UserInfo")
-        fetchRequest.predicate = NSPredicate(format: "username == %@", userName)
+        fetchRequest.predicate = NSPredicate(format: "phoneNumber == %@", phoneNumber)
         do {
             let tasks = try managedObjectContext.fetch(fetchRequest)
             return tasks.count > 0 ? tasks.first : nil
@@ -103,10 +103,10 @@ class DataHandling {
         }
     }
     
-    func deleteUser(userName: String, coreDataClosure: CoreDataClosure) {
+    func deleteUser(phoneNumber: String, coreDataClosure: CoreDataClosure) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
-        let userData = fetchSingleUser(userName: userName)
+        let userData = fetchSingleUser(phoneNumber: phoneNumber)
         if let userData = userData {
             managedObjectContext.delete(userData)
             do {
@@ -121,10 +121,10 @@ class DataHandling {
     func updateUserInfo(userModel: UserInfoModel, coreDataClosure: CoreDataClosure){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
-        let userData = fetchSingleUser(userName: userModel.username)
+        let userData = fetchSingleUser(phoneNumber: userModel.phoneNumber)
         if let userData = userData {
             userData.address = userModel.address
-            userData.phoneNumber = userModel.phoneNumber
+            userData.username = userModel.username
             userData.others = userModel.others
 
             do {

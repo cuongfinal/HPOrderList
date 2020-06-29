@@ -21,6 +21,8 @@ class ListProductGridVC: UIViewController {
     @IBOutlet weak var viewHeader: UIView!
     @IBOutlet weak var viewTable: UIView!
     @IBOutlet weak var btnClose: UIButton!
+    @IBOutlet weak var imgWaterMark: UIImageView!
+    
     var total: Int64 = 0
     var paid: Int64 = 0
     var remaining: Int64 = 0
@@ -31,6 +33,7 @@ class ListProductGridVC: UIViewController {
         
         view.setNeedsLayout()
         view.layoutIfNeeded()
+        handleShowWaterMark()
     }
     
     func configure(productInfo: [ProductInfo], totalMoney: Int64, paidMoney: Int64, remainingMoney: Int64){
@@ -42,6 +45,22 @@ class ListProductGridVC: UIViewController {
         lbTotalMoney.text = String(format: "total_money".localized(), CommonUtil.convertCurrency(totalMoney, currency: ""))
         lbRemainingMoney.text = String(format: "total_remaining_money".localized(), CommonUtil.convertCurrency(remainingMoney, currency: ""))
         lbPaid.text = String(format: "total_paid_money".localized(), CommonUtil.convertCurrency(paidMoney, currency: ""))
+    }
+    
+    func handleShowWaterMark(){
+        if !CommonUtil.getDefaultDisableWaterMark(){
+            imgWaterMark.isHidden = true
+        }else{
+            if let imgData = CommonUtil.getDefaultWaterMark() {
+                if let img = UIImage(data: imgData){
+                    imgWaterMark.image = img
+                }else {
+                    imgWaterMark.image = UIImage(named: "logo-junes")
+                }
+            }else{
+                imgWaterMark.image = UIImage(named: "logo-junes")
+            }
+        }
     }
     
     @IBAction func closeTapped(_ sender: Any) {
@@ -64,9 +83,9 @@ class ListProductGridVC: UIViewController {
     func setupViews() {
         navigationController?.navigationBar.isTranslucent = false
         title = "Employee Balances"
-        view.backgroundColor = UIColor.veryLightBlue
-        viewHeader.backgroundColor = UIColor.veryLightBlue
-        viewFooter.backgroundColor = UIColor.veryLightBlue
+        view.backgroundColor = UIColor.white
+//        viewHeader.backgroundColor = UIColor.veryLightBlue
+//        viewFooter.backgroundColor = UIColor.veryLightBlue
         automaticallyAdjustsScrollViewInsets = false
         viewTable.addSubview(dataTable)
     }

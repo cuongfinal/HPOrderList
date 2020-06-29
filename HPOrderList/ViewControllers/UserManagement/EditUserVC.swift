@@ -9,7 +9,7 @@
 import UIKit
 
 class EditUserVC: BaseVCCanBack {
-    @IBOutlet weak var ivPhone: FInputView!
+    @IBOutlet weak var ivName: FInputView!
     @IBOutlet weak var ivAddress: FInputView!
     @IBOutlet weak var ivOther: FInputView!
     @IBOutlet weak var btnCreate: FConfirmButton!
@@ -18,10 +18,10 @@ class EditUserVC: BaseVCCanBack {
     override func viewDidLoad() {
         title = "Chỉnh sửa thông tin K/H"
         super.viewDidLoad()
-        ivPhone.delegate = self
+        ivName.delegate = self
         ivOther.delegate = self
         ivAddress.delegate = self
-        ivPhone.inputKeyboardType = .phonePad
+    
         setupUI()
     }
     
@@ -30,7 +30,7 @@ class EditUserVC: BaseVCCanBack {
             goBack()
             return
         }
-        ivPhone.value = userInfo.phoneNumber ?? ""
+        ivName.value = userInfo.username ?? ""
         ivAddress.value = userInfo.address ?? ""
         ivOther.value = userInfo.others ?? ""
     }
@@ -41,7 +41,7 @@ class EditUserVC: BaseVCCanBack {
             return
         }
         
-        let userModel = UserInfoModel(username: userInfo.username ?? "", phoneNumber: ivPhone.value, address: ivAddress.value, others: ivOther.value)
+        let userModel = UserInfoModel(username: ivName.value, phoneNumber: userInfo.phoneNumber ?? "", address: ivAddress.value, others: ivOther.value)
         DataHandling().updateUserInfo(userModel: userModel){ result in
             if !result.success {
                 self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
@@ -52,7 +52,7 @@ class EditUserVC: BaseVCCanBack {
     }
     
     private func reloadBtnSubmit(){
-           btnCreate.isEnabled = ivPhone.value.count > 0
+           btnCreate.isEnabled = ivName.value.count > 0
                && ivAddress.value.count > 0
     }
 }

@@ -143,8 +143,10 @@ extension CSVWorking {
         }
         //Add "" value for missing field
         let remainingField = totalField - allValues.count
-        for _ in 0..<remainingField {
-            allValues.append("")
+        if remainingField > 0 {
+            for _ in 0..<remainingField {
+                allValues.append("")
+            }
         }
         return allValues
     }

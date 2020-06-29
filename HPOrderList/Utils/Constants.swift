@@ -15,3 +15,5 @@ let supportEmail = "cuongfinal@gmail.com"
 
 var AutoBackUpDefaultKey = "AutoBackUpDefaultKey"
 var LastUpdateDefaultKey = "LastUpdateDefaultKey"
+var DisableWaterMark = "DisableWaterMark"
+var DefaultWaterMark = "DefaultWaterMark"

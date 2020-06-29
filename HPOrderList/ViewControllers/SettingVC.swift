@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 import SwiftDate
 
-class SettingVC: BaseVC {
+class SettingVC: BaseImagePickerVC {
     let documentController = UIDocumentPickerViewController(
         documentTypes: ["public.text"], // choose your desired documents the user is allowed to select
         in: .import // choose your desired UIDocumentPickerMode
@@ -18,10 +18,11 @@ class SettingVC: BaseVC {
     
     var sectionFunction = [("backup_title".localized(),"backup-icon"),
                            ("restore_title".localized(),"restore-icon"),
-                           ("auto_backup_title".localized(),"auto-backup-icon")]
+                           ("auto_backup_title".localized(),"auto-backup-icon"),
+                           ("show_hide_watermark".localized(), "disable-wtm-icon"),
+                           ("change_watermark".localized(), "change-wtm-icon")]
     
-    var sectionSupport = [("guideline_title".localized(),"user-guide-icon"),
-                          ("contact_title".localized(),"contact-icon")]
+    var sectionSupport = [("contact_title".localized(),"contact-icon")]
     
     @IBOutlet weak var tbSettings: UITableView! {
         didSet {
@@ -45,10 +46,6 @@ class SettingVC: BaseVC {
         documentController.allowsMultipleSelection = false
     }
     
-    func handleExportError(result: ClosureState){
-        self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
-    }
-    
     func actionContactUs(){
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
@@ -61,17 +58,13 @@ class SettingVC: BaseVC {
         }
     }
     
-    @objc func switchChanged(switcher: UISwitch){
-        CommonUtil.setDefaultAutoBackup(state: switcher.isOn)
-        if switcher.isOn {
-            CSVWorking().exportDatabase { result in
-                if result.success {
-                    self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_autobackup_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
-                    self.tbSettings.reloadData()
-                }else{
-                    self.handleExportError(result: result)
-                }
+    override func pickedImage(_ image: UIImage?) {
+        if let image = image {
+            if let imgData = image.jpegData(compressionQuality: 1){
+                CommonUtil.setDefaultWaterMark(data: imgData)
+                 self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_watermark_save_ok".localized(), cancelTitle: "Đóng", completedClosure: nil))
             }
+            self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: "alert_watermark_save_ng".localized(), cancelTitle: "Đóng", completedClosure: nil))
         }
     }
 }
@@ -80,22 +73,28 @@ extension SettingVC {
     func handleSelectBackup(){
         let alert = UIAlertController(title: "Lựa chọn", message: "Lựa chọn phương thức sao lưu phù hợp với bạn", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Lưu vào Files App", style: .default , handler:{ (UIAlertAction)in
+        let actionFilesApp = UIAlertAction(title: "Lưu vào Files App", style: .default) { (action) in
             alert.dismiss {
                 self.actionFilesApp()
             }
-        }))
+        }
+        actionFilesApp.setValue(UIColor.mainColor, forKey: "titleTextColor")
         
-        alert.addAction(UIAlertAction(title: "Gửi Email", style: .default , handler:{ (UIAlertAction)in
+        let actionEmail = UIAlertAction(title: "Gửi Email", style: .default) { (action) in
             alert.dismiss {
                 self.actionSendEmail()
             }
-        }))
+        }
+        actionEmail.setValue(UIColor.mainColor, forKey: "titleTextColor")
         
-        alert.addAction(UIAlertAction(title: "Đóng", style: .cancel , handler:{ (UIAlertAction)in
+        let actionCancel = UIAlertAction(title: "Đóng", style: .default) { (action) in
             alert.dismiss()
-        }))
+        }
+        actionCancel.setValue(UIColor.orange, forKey: "titleTextColor")
         
+        alert.addAction(actionFilesApp)
+        alert.addAction(actionEmail)
+        alert.addAction(actionCancel)
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
@@ -145,6 +144,34 @@ extension SettingVC {
             }
         }
     }
+    
+    @objc func switchAutoBackUpChanged(switcher: UISwitch){
+        CommonUtil.setDefaultAutoBackup(state: switcher.isOn)
+        if switcher.isOn {
+            CSVWorking().exportDatabase { result in
+                if result.success {
+                    self.present(AlertVC.shared.warningAlert("alert_success_title".localized(), message: "alert_autobackup_content".localized(), cancelTitle: "Đóng", completedClosure: nil))
+                    self.tbSettings.reloadData()
+                }else{
+                    self.handleExportError(result: result)
+                }
+            }
+        }
+    }
+    
+    func handleExportError(result: ClosureState){
+        self.present(AlertVC.shared.warningAlert("alert_fail_title".localized(), message: result.message, cancelTitle: "Đóng", completedClosure: nil))
+    }
+}
+
+extension SettingVC {
+    @objc func switchShowHideWatermarkChanged(switcher: UISwitch){
+        CommonUtil.setDefaultDisableWaterMark(state: switcher.isOn)
+    }
+    
+    func handleChangeWatermark(){
+         openImagePickerMenu(title: "photo_alert_title".localized())
+    }
 }
 
 extension SettingVC: UIDocumentPickerDelegate {
@@ -172,16 +199,20 @@ extension SettingVC: UIDocumentPickerDelegate {
     func handleSelectRestore(){
         let alert = UIAlertController(title: "Lựa chọn", message: "Lựa chọn phương thức phục hồi phù hợp với bạn", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Mở từ Files App", style: .default , handler:{ (UIAlertAction)in
+        let actionFilesApp = UIAlertAction(title: "Mở từ Files App", style: .default) { (action) in
             alert.dismiss {
                 self.present(self.documentController)
             }
-        }))
+        }
+        actionFilesApp.setValue(UIColor.mainColor, forKey: "titleTextColor")
         
-        alert.addAction(UIAlertAction(title: "Đóng", style: .cancel , handler:{ (UIAlertAction)in
+        let actionClose = UIAlertAction(title: "Đóng", style: .default) { (action) in
             alert.dismiss()
-        }))
+        }
+        actionClose.setValue(UIColor.orange, forKey: "titleTextColor")
         
+        alert.addAction(actionFilesApp)
+        alert.addAction(actionClose)
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
@@ -251,8 +282,11 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
             data = sectionFunction[indexPath.row]
             if indexPath.row == 2 {
                 cell.configure(type: .switcher, switcherState: CommonUtil.getDefaultAutoBackup())
-                cell.switcherView.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
-            }else{
+                cell.switcherView.addTarget(self, action: #selector(switchAutoBackUpChanged), for: UIControl.Event.valueChanged)
+            }else if indexPath.row == 3 {
+                cell.configure(type: .switcher, switcherState: CommonUtil.getDefaultDisableWaterMark())
+                cell.switcherView.addTarget(self, action: #selector(switchShowHideWatermarkChanged), for: UIControl.Event.valueChanged)
+            } else{
                 cell.configure(type: .none)
             }
         }else{
@@ -272,6 +306,8 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
                 handleSelectBackup()
             case 1:
                 handleSelectRestore()
+            case 4:
+                handleChangeWatermark()
             default:
                 break
             }

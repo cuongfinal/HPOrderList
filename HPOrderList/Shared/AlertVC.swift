@@ -9,8 +9,10 @@
 
 import Foundation
 import UIKit
+
 typealias CompletedClosure = (()->())?
 typealias ConfirmClosure = (()->())?
+typealias ImagePickerMenuClosure = (()->())?
 
 protocol AlertVCDelegate: class {
     func autoPopAlert()
@@ -64,5 +66,29 @@ class AlertVC : UIAlertController {
         alertVC.view.tintColor = UIColor.mainColor
         return alertVC
     }
+    
+    func imagePickerAlert(title: String, photoClosure: ImagePickerMenuClosure, cancelClosure: ImagePickerMenuClosure) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        
+        let actionPhoto = UIAlertAction(title: "photo_library".localized(), style: .default) { (action) in
+            photoClosure?()
+        }
+        actionPhoto.setValue(UIColor.mainColor, forKey: "titleTextColor")
+        
+        let actionClose = UIAlertAction(title: "Đóng", style: .cancel) { (action) in
+            cancelClosure?()
+        }
+        actionClose.setValue(UIColor.orange, forKey: "titleTextColor")
+        
+        let titleFont = [NSAttributedString.Key.font: SFProText.semibold(size: 13), NSAttributedString.Key.foregroundColor: UIColor.mainColor]
+        let titleAttrString = NSMutableAttributedString(string: title, attributes: titleFont)
+        alert.setValue(titleAttrString, forKey: "attributedTitle")
+        
+        alert.addAction(actionPhoto)
+        alert.addAction(actionClose)
+        
+        return alert
+    }
+    
 }
 
